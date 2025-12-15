@@ -12,13 +12,11 @@ export function Hero() {
         muted
         loop
         playsInline
+        poster="https://images.unsplash.com/photo-1596423736858-29307730e730?q=80&w=1920&auto=format&fit=crop"
         className="absolute inset-0 h-full w-full object-cover"
       >
-        <source src="/videoNeira.mp4" type="video/mp4" />
+        <source src="https://media.githubusercontent.com/media/alfseptyan/KKN-NeiraBasudara/master/public/videoNeira.mp4" type="video/mp4" />
       </video>
-      
-      {/* Fallback */}
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1596423736858-29307730e730?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center -z-10" />
 
       {/* Content Overlay */}
       <div className="container relative z-20 flex flex-col items-center text-center text-white px-4 animate-fade-in-up">
