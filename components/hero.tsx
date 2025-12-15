@@ -14,7 +14,7 @@ export function Hero() {
         playsInline
         className="absolute inset-0 h-full w-full object-cover"
       >
-        <source src="/vid-banner.mp4" type="video/mp4" />
+        <source src="/videoNeira.mp4" type="video/mp4" />
       </video>
       
       {/* Fallback */}
