@@ -34,8 +34,8 @@ export function Footer() {
             <nav className="flex flex-col space-y-3 text-sm text-white/80">
               <Link href="#about" className="hover:text-amber-300 transition-colors duration-300">Tentang Kami</Link>
               <Link href="#location" className="hover:text-amber-300 transition-colors duration-300">Lokasi Desa</Link>
-              <Link href="#timeline" className="hover:text-amber-300 transition-colors duration-300">Timeline OPREC</Link>
-              <Link href="#gallery" className="hover:text-amber-300 transition-colors duration-300">Galeri Foto</Link>
+              <Link href="#timeline" className="hover:text-amber-300 transition-colors duration-300">Timeline</Link>
+              <Link href="#gallery" className="hover:text-amber-300 transition-colors duration-300">Galeri</Link>
               <Link href="#admin" className="hover:text-amber-300 transition-colors duration-300">Administrasi</Link>
             </nav>
           </div>

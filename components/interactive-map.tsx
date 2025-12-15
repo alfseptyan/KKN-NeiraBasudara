@@ -126,7 +126,7 @@ export function InteractiveMap() {
   const [hoveredVillage, setHoveredVillage] = useState<string | null>(null);
 
   return (
-    <div className="relative w-full h-[85vh] bg-slate-50/30 rounded-2xl overflow-hidden border">
+    <div className="relative w-full h-[65vh] bg-slate-50/30 rounded-2xl overflow-hidden border">
       
       {/* Helper Text (Bottom Left) */}
       <div className="absolute bottom-6 left-6 z-10 bg-white/80 backdrop-blur px-4 py-2 rounded-full text-sm text-muted-foreground shadow-sm pointer-events-none border">
@@ -134,7 +134,7 @@ export function InteractiveMap() {
       </div>
 
       {/* Map Area */}
-      <div className="w-full h-full flex items-center justify-center p-0 md:pr-72 pb-12 md:pb-0">
+      <div className="w-full h-full flex items-center justify-center p-0 md:pr-[450px] pb-12 md:pb-0">
         <svg
           viewBox="0 0 3507 2480"
           className="w-full h-full drop-shadow-xl"
@@ -174,36 +174,36 @@ export function InteractiveMap() {
       )}
 
       {/* Floating Info Panel (Top Right) */}
-      <div className="absolute top-4 right-4 w-64 md:w-72 flex flex-col gap-3 z-20 max-h-[calc(100%-2rem)] overflow-y-auto pr-1">
+      <div className="absolute top-4 right-4 w-80 md:w-[420px] flex flex-col gap-3 z-20 max-h-[calc(100%-2rem)] overflow-y-auto pr-1 scrollbar-hide">
         
         {/* Detail Box */}
         <motion.div 
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white/90 backdrop-blur-md rounded-xl border shadow-lg p-4"
+            className="bg-white/90 backdrop-blur-md rounded-xl border shadow-lg p-5"
         >
-            <h3 className="text-lg font-bold text-secondary mb-1">
+            <h3 className="text-xl font-bold text-secondary mb-1">
                 {activeVillage ? activeVillage.name : "Info Wilayah"}
             </h3>
             <div className="h-1 w-12 bg-primary mb-3 rounded-full" />
             
             {activeVillage ? (
                 <div className="animate-fade-in">
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-base text-muted-foreground leading-relaxed">
                         {activeVillage.description}
                     </p>
                 </div>
             ) : (
-                <p className="text-xs text-muted-foreground italic">
-                    Pilih wilayah di peta.
+                <p className="text-sm text-muted-foreground italic">
+                    Pilih wilayah di peta untuk melihat detail.
                 </p>
             )}
         </motion.div>
 
         {/* Legend Box (Compact) */}
-        <div className="bg-white/90 backdrop-blur-md rounded-xl p-4 border shadow-lg">
+        <div className="bg-white/90 backdrop-blur-md rounded-xl p-5 border shadow-lg">
             <h4 className="font-semibold text-xs uppercase tracking-wider text-muted-foreground mb-3">Legenda</h4>
-            <div className="grid grid-cols-1 gap-1.5">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                 {villages.map(v => (
                     <div 
                         key={v.id} 
@@ -213,7 +213,7 @@ export function InteractiveMap() {
                         )}
                         onClick={() => setActiveVillage(v)}
                     >
-                        <span className="w-2.5 h-2.5 rounded-full shadow-sm" style={{ backgroundColor: v.color }} />
+                        <span className="w-2.5 h-2.5 rounded-full shadow-sm flex-shrink-0" style={{ backgroundColor: v.color }} />
                         <span className="truncate">{v.name}</span>
                     </div>
                 ))}

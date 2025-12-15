@@ -19,11 +19,38 @@ const navItems = [
   { name: "Tentang", href: "#about" },
   { name: "Lokasi", href: "#location" },
   { name: "Timeline", href: "#timeline" },
-  { name: "Gallery", href: "#gallery" },
+  { name: "Galeri", href: "#gallery" },
 ];
 
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [activeSection, setActiveSection] = React.useState("");
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const sections = navItems.map(item => item.href.substring(1));
+      
+      // Default to home if at top
+      if (window.scrollY < 100) {
+        setActiveSection("");
+        return;
+      }
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top >= 0 && rect.top <= 300) {
+            setActiveSection(`#${section}`);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Elegant Dark Glass Style
   return (
@@ -56,9 +83,17 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-base font-medium text-white/90 hover:text-primary transition-colors tracking-wide"
+              className={`text-base font-medium transition-colors tracking-wide relative group ${
+                activeSection === item.href 
+                  ? "text-primary font-semibold" 
+                  : "text-white/90 hover:text-primary"
+              }`}
+              onClick={() => setActiveSection(item.href)}
             >
               {item.name}
+              <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform transition-transform duration-300 ${
+                activeSection === item.href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+              }`} />
             </Link>
           ))}
           <Button 

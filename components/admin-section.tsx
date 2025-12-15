@@ -71,7 +71,7 @@ export function AdminSection() {
                 </CardContent>
                 <CardFooter>
                     <Button className="w-full gap-2" asChild>
-                        <Link href="https://forms.google.com/example" target="_blank">
+                        <Link href="https://docs.google.com/forms/d/e/1FAIpQLSdiA8apmbGaDEnD6EyP9pb_-gn31TrtTog1Rt_YqrCDvr-Y-A/viewform" target="_blank">
                             Daftar Sekarang <Send className="h-4 w-4" />
                         </Link>
                     </Button>

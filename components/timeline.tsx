@@ -14,7 +14,7 @@ export function Timeline() {
       <div className="container px-4 md:px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-secondary mb-4">
-            Timeline OPREC
+            Timeline
           </h2>
           <p className="text-lg text-muted-foreground">
             Catat tanggal penting rekrutmen kami.
