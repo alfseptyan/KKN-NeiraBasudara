@@ -1,4 +1,28 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
+
+const aboutImages = [
+  "/Tentang/tentang-slider-1.png",
+  "/Tentang/tentang-slider-2.png",
+  "/Tentang/tentang-slider-3.png",
+];
+
 export function About() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % aboutImages.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + aboutImages.length) % aboutImages.length);
+  };
+
   return (
     <section id="about" className="py-20 md:py-32 bg-background">
       <div className="container px-4 md:px-6">
@@ -12,7 +36,7 @@ export function About() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed order-2 md:order-1">
                 <p>
                     <span className="font-semibold text-foreground">Neira Basudara</span> merupakan inisiatif KKN-PPM UGM yang berfokus pada pengembangan berkelanjutan di wilayah Kepulauan Banda. 
                     Kami hadir dengan semangat kolaborasi untuk memberdayakan potensi lokal melalui pendekatan ekologis, sosial, dan kultural.
@@ -22,10 +46,56 @@ export function About() {
                     kami berkomitmen untuk menjaga kelestarian alam Banda Neira sekaligus mengangkat kekayaan sejarahnya yang mendunia.
                 </p>
             </div>
-            <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl bg-muted">
-                {/* Placeholder for About Image */}
-                <div className="absolute inset-0 bg-neutral-200 flex items-center justify-center text-muted-foreground">
-                    Image: Team or Landscape
+            
+            {/* Image Slider */}
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl bg-muted order-1 md:order-2 group">
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={currentIndex}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.3 }}
+                        className="absolute inset-0"
+                    >
+                        <Image
+                            src={aboutImages[currentIndex]}
+                            alt={`Tentang Neira Basudara ${currentIndex + 1}`}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                    </motion.div>
+                </AnimatePresence>
+
+                {/* Navigation Buttons */}
+                <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                    onClick={prevSlide}
+                >
+                    <ChevronLeft className="h-6 w-6" />
+                </Button>
+                <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                    onClick={nextSlide}
+                >
+                    <ChevronRight className="h-6 w-6" />
+                </Button>
+                
+                {/* Indicators */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
+                    {aboutImages.map((_, idx) => (
+                        <div 
+                            key={idx}
+                            className={`h-1.5 rounded-full transition-all duration-300 ${
+                                idx === currentIndex ? "w-6 bg-white" : "w-1.5 bg-white/50"
+                            }`} 
+                        />
+                    ))}
                 </div>
             </div>
         </div>
