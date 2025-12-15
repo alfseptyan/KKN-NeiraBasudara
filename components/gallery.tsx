@@ -50,28 +50,37 @@ export function Gallery() {
   const [activeTab, setActiveTab] = useState<PekanType>("Pekan 1");
 
   return (
-    <section id="gallery" className="w-full py-20 bg-[#FDFBF7]"> {/* Lightest warm background */}
+    <section id="gallery" className="w-full py-12 bg-[#FDFBF7]"> {/* Lightest warm background - Reduced padding */}
       <div className="w-full px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
             {/* Header aligned with grid */}
-            <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-6 border-b border-orange-200/50 pb-8">
-              <div className="text-left">
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-secondary mb-3">
+            <div className="flex flex-col md:flex-row justify-between items-end mb-6 gap-4 border-b border-orange-200/50 pb-4">
+              <div className="text-left relative">
+                 {/* Flower Decoration */}
+                 <div className="absolute -top-10 -left-6 w-20 h-20 opacity-80 pointer-events-none -z-10">
+                    <Image 
+                        src="/Asset/asset bunga.png" 
+                        alt="Bunga Pala" 
+                        fill 
+                        className="object-contain"
+                    />
+                 </div>
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-secondary mb-2 relative z-10">
                   Galeri Kegiatan
                 </h2>
-                <p className="text-muted-foreground max-w-xl text-lg font-medium">
-                  Jelajahi momen berkesan dari perjalanan KKN-PPM UGM di Banda Neira, yang terangkai indah dalam setiap pekannya.
+                <p className="text-muted-foreground max-w-xl text-base font-medium relative z-10">
+                  Jelajahi momen berkesan dari perjalanan KKN-PPM UGM di Banda Neira.
                 </p>
               </div>
 
               {/* Minimalist Tabs Navigation */}
-              <div className="flex flex-wrap gap-2 md:gap-4">
+              <div className="flex flex-wrap gap-2">
                 {Object.keys(galleryData).map((pekan) => (
                   <button
                     key={pekan}
                     onClick={() => setActiveTab(pekan as PekanType)}
                     className={cn(
-                      "px-4 py-2 text-sm md:text-base font-medium transition-all duration-300 relative",
+                      "px-3 py-1.5 text-sm font-medium transition-all duration-300 relative",
                       activeTab === pekan
                         ? "text-primary"
                         : "text-muted-foreground hover:text-primary"
@@ -86,27 +95,27 @@ export function Gallery() {
               </div>
             </div>
 
-            {/* Grid aligned with header */}
+            {/* Grid aligned with header - Reduced aspect ratio to be shorter */}
             <div className={cn(
               "grid gap-2 animate-in fade-in zoom-in duration-700 key={activeTab}",
               activeTab === "Pekan 4" 
-                ? "grid-cols-2 md:grid-cols-4" 
-                : "grid-cols-2 md:grid-cols-3"
+                ? "grid-cols-3 md:grid-cols-4" // Increased columns to make items smaller
+                : "grid-cols-3 md:grid-cols-3" 
             )}>
                 {galleryData[activeTab].slice(0, activeTab === "Pekan 4" ? 8 : 6).map((src, idx) => (
-                    <div key={`${activeTab}-${idx}`} className="relative group overflow-hidden bg-gray-100 aspect-[4/5]">
+                    <div key={`${activeTab}-${idx}`} className="relative group overflow-hidden bg-gray-100 aspect-square"> {/* Square aspect ratio */}
                         <Image 
                             src={src} 
                             alt={`Dokumentasi ${activeTab} - ${idx + 1}`}
                             fill
                             className="object-cover w-full h-full transition-transform duration-1000 group-hover:scale-105"
                             loading="lazy"
-                            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                            sizes="(max-width: 768px) 33vw, 25vw"
                         />
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
-                        <div className="absolute bottom-0 left-0 w-full p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
-                           <span className="inline-block px-3 py-1 bg-white/90 backdrop-blur text-xs font-semibold uppercase tracking-wider text-primary">
-                             {activeTab} &bull; Foto {idx + 1}
+                        <div className="absolute bottom-0 left-0 w-full p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
+                           <span className="inline-block px-2 py-0.5 bg-white/90 backdrop-blur text-[10px] font-semibold uppercase tracking-wider text-primary">
+                             Foto {idx + 1}
                            </span>
                         </div>
                     </div>

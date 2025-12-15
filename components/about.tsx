@@ -36,7 +36,17 @@ export function About() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed order-2 md:order-1">
+            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed order-2 md:order-1 relative">
+                {/* Batik Decoration */}
+                <div className="absolute -top-10 -left-10 w-32 h-32 opacity-10 pointer-events-none -z-10 rotate-12">
+                   <Image 
+                     src="/Asset/asset batik.png" 
+                     alt="Batik Pattern" 
+                     fill 
+                     className="object-contain"
+                   />
+                </div>
+                
                 <p>
                     <span className="font-semibold text-foreground">Neira Basudara</span> merupakan inisiatif KKN-PPM UGM yang berfokus pada pengembangan berkelanjutan di wilayah Kepulauan Banda. 
                     Kami hadir dengan semangat kolaborasi untuk memberdayakan potensi lokal melalui pendekatan ekologis, sosial, dan kultural.

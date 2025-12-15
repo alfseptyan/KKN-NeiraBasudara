@@ -6,7 +6,16 @@ export function CopDefinition() {
   return (
     <section id="cop" className="py-28 bg-muted/30">
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center text-center mb-12">
+        <div className="flex flex-col items-center text-center mb-12 relative">
+           {/* Bird Decoration */}
+           <div className="absolute -top-12 -right-4 md:-right-20 w-24 h-24 md:w-32 md:h-32 opacity-80 pointer-events-none animate-bounce duration-[3000ms]">
+              <Image 
+                src="/Asset/asset burung.png" 
+                alt="Burung Banda" 
+                fill 
+                className="object-contain"
+              />
+           </div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-secondary">
             Community of Practice (CoP)
           </h2>

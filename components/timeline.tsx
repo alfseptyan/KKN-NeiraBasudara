@@ -1,4 +1,5 @@
 import { CheckCircle2, Clock } from "lucide-react";
+import Image from "next/image";
 
 const timelineEvents = [
   { date: "16–19 Des 2025", title: "Pendaftaran", status: "done", desc: "Isi formulir dan lengkapi berkas." },
@@ -12,7 +13,16 @@ export function Timeline() {
   return (
     <section id="timeline" className="py-28 bg-background">
       <div className="container px-4 md:px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 relative">
+          {/* Butterfly Decoration */}
+          <div className="absolute top-0 right-10 md:right-[20%] w-16 h-16 md:w-20 md:h-20 opacity-60 pointer-events-none rotate-12">
+              <Image 
+                src="/Asset/asset kupu-kupu.png" 
+                alt="Kupu-Kupu" 
+                fill 
+                className="object-contain"
+              />
+          </div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-secondary mb-4">
             Timeline
           </h2>

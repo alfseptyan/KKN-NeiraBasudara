@@ -25,11 +25,19 @@ const navItems = [
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [activeSection, setActiveSection] = React.useState("");
+  const [isScrolled, setIsScrolled] = React.useState(false);
 
   React.useEffect(() => {
     const handleScroll = () => {
       const sections = navItems.map(item => item.href.substring(1));
       
+      // Update scrolled state
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+
       // Default to home if at top
       if (window.scrollY < 100) {
         setActiveSection("");
@@ -52,9 +60,23 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Elegant Dark Glass Style
+  // Dynamic Styles
+  const navbarClasses = isScrolled 
+    ? "bg-white/80 backdrop-blur-md shadow-md border-transparent text-secondary" 
+    : "bg-transparent border-transparent text-white";
+
+  const navItemClasses = (itemHref: string) => {
+    const isActive = activeSection === itemHref;
+    if (isScrolled) {
+        return isActive ? "text-primary font-semibold" : "text-secondary hover:text-primary";
+    }
+    return isActive ? "text-primary font-semibold" : "text-white/90 hover:text-primary";
+  };
+  
+  const logoFilter = isScrolled ? "invert(1)" : ""; // Invert white logo to black on white bg
+
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-black/40 backdrop-blur-md transition-all duration-300">
+    <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${navbarClasses}`}>
       <div className="w-full flex h-20 items-center justify-between px-6 md:px-12 lg:px-16">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center space-x-3 group">
@@ -66,7 +88,7 @@ export function Navbar() {
                     className="object-contain"
                 />
             </div>
-            <div className="relative h-8 w-40 ml-2">
+            <div className="relative h-8 w-40 ml-2" style={{ filter: isScrolled ? "invert(1) brightness(0.2)" : "" }}>
                 <Image 
                     src="/Neira Basudara Text.png" 
                     alt="Neira Basudara"
@@ -83,11 +105,7 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`text-base font-medium transition-colors tracking-wide relative group ${
-                activeSection === item.href 
-                  ? "text-primary font-semibold" 
-                  : "text-white/90 hover:text-primary"
-              }`}
+              className={`text-base font-medium transition-colors tracking-wide relative group ${navItemClasses(item.href)}`}
               onClick={() => setActiveSection(item.href)}
             >
               {item.name}
@@ -109,12 +127,12 @@ export function Navbar() {
         <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 hover:text-primary">
+              <Button variant="ghost" size="icon" className={isScrolled ? "text-secondary hover:bg-secondary/10" : "text-white hover:bg-white/10"}>
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-black/95 border-l-white/10 text-white">
+            <SheetContent side="right" className="bg-white text-secondary">
               <SheetHeader>
                 <SheetTitle className="text-left font-bold text-primary text-xl">
                   Neira Basudara
@@ -125,7 +143,7 @@ export function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="text-lg font-medium text-white/90 hover:text-primary transition-colors border-b border-white/5 pb-2"
+                    className="text-lg font-medium text-secondary hover:text-primary transition-colors border-b border-gray-100 pb-2"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
