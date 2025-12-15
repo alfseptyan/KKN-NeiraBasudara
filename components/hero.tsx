@@ -18,6 +18,10 @@ export function Hero() {
         <source src="https://media.githubusercontent.com/media/alfseptyan/KKN-NeiraBasudara/master/public/videoNeira.mp4" type="video/mp4" />
       </video>
 
+      {/* Robust Fallback/Overlay - Ensures background is never blank */}
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1596423736858-29307730e730?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center -z-20" />
+      <div className="absolute inset-0 bg-black/40 z-10" />
+
       {/* Content Overlay */}
       <div className="container relative z-20 flex flex-col items-center text-center text-white px-4 animate-fade-in-up">
         <div className="relative h-32 w-32 md:h-48 md:w-48 mb-4 animate-fade-in-up delay-100">
