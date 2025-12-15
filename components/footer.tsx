@@ -62,7 +62,9 @@ export function Footer() {
 
           {/* RIGHT SECTION: Navigation Columns */}
           {/* Pushed down less to match cleaner look */}
-          <div className="flex flex-col md:flex-row gap-8 md:gap-16 md:pt-20">
+          {/* RIGHT SECTION: Navigation Columns */}
+          {/* Pushed down less to match cleaner look */}
+          <div className="grid grid-cols-2 gap-8 md:gap-16 md:pt-20">
             {/* Column 1 */}
             <div className="flex flex-col space-y-3">
                 <h4 className="font-bold text-base">Eksplorasi</h4>

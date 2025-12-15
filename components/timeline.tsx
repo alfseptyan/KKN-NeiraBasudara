@@ -3,10 +3,10 @@ import Image from "next/image";
 
 const timelineEvents = [
   { date: "16–19 Des 2025", title: "Pendaftaran", status: "done", desc: "Isi formulir dan lengkapi berkas." },
-  { date: "20 Des 2025", title: "Pengumuman Berkas", status: "upcoming", desc: "Seleksi administrasi." },
+  { date: "20 Des 2025", title: "Pengumuman Hasil Seleksi", status: "upcoming", desc: "Seleksi administrasi & berkas." },
   { date: "22–23 Des 2025", title: "Wawancara", status: "upcoming", desc: "Sesi wawancara & penugasan." },
   { date: "24 Des 2025", title: "Pengumuman Akhir", status: "upcoming", desc: "Pukul 15.00 WIB." },
-  { date: "24 Des 2025", title: "Kontrak", status: "upcoming", desc: "Batas 23.59 WIB." },
+  { date: "24 Des 2025", title: "Batas Konfirmasi", status: "upcoming", desc: "Konfirmasi ke Narahubung maks. 23.59." },
 ];
 
 export function Timeline() {

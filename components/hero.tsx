@@ -56,10 +56,10 @@ export function Hero({ onReady }: HeroProps) {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mt-2 animate-fade-in-up delay-300">
-            <Button size="lg" variant="outline" className="text-white border-white bg-transparent hover:bg-white/20 hover:text-white font-semibold text-lg px-8 py-6 h-auto" asChild>
+            <Button size="lg" variant="outline" className="text-white border-white bg-transparent hover:bg-white/20 hover:text-white font-semibold text-base px-6 py-4 h-auto" asChild>
                 <Link href="#about">Tentang Kami</Link>
             </Button>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-8 py-6 h-auto" asChild>
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold text-base px-6 py-4 h-auto" asChild>
                 <Link href="#admin">Kebutuhan Administrasi</Link>
             </Button>
         </div>

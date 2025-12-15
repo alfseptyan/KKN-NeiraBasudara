@@ -174,14 +174,14 @@ export function InteractiveMap() {
         </div>
       )}
 
-      {/* Floating Info Panel (Top Right) */}
-      <div className="absolute top-4 right-4 w-80 md:w-[420px] flex flex-col gap-3 z-20 max-h-[calc(100%-2rem)] overflow-y-auto pr-1 scrollbar-hide">
+      {/* Floating Info Panel (Desktop: Top Right, Mobile: Bottom Sheet relative) */}
+      <div className="absolute md:top-4 md:right-4 bottom-0 left-0 right-0 md:left-auto md:w-[420px] flex flex-col gap-3 z-20 max-h-[50vh] md:max-h-[calc(100%-2rem)] overflow-y-auto pr-1 scrollbar-hide p-4 md:p-0 bg-gradient-to-t from-white/90 via-white/80 to-transparent md:bg-none">
         
         {/* Detail Box */}
         <motion.div 
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white/90 backdrop-blur-md rounded-xl border shadow-lg p-5"
+            className="bg-white/95 backdrop-blur-md rounded-xl border shadow-lg p-5 w-full order-2 md:order-1"
         >
             <h3 className="text-xl font-bold text-secondary mb-1">
                 {activeVillage ? activeVillage.name : "Info Wilayah"}
@@ -196,13 +196,13 @@ export function InteractiveMap() {
                 </div>
             ) : (
                 <p className="text-sm text-muted-foreground italic">
-                    Pilih wilayah di peta untuk melihat detail.
+                    Klik wilayah di peta untuk melihat detail.
                 </p>
             )}
         </motion.div>
 
         {/* Legend Box (Compact) */}
-        <div className="bg-white/90 backdrop-blur-md rounded-xl p-5 border shadow-lg">
+        <div className="bg-white/90 backdrop-blur-md rounded-xl p-5 border shadow-lg w-full hidden md:block order-1 md:order-2">
             <h4 className="font-semibold text-xs uppercase tracking-wider text-muted-foreground mb-3">Legenda</h4>
             <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                 {villages.map(v => (

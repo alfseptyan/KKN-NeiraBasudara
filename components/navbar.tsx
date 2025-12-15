@@ -76,8 +76,8 @@ export function Navbar() {
   const logoFilter = isScrolled ? "invert(1)" : ""; // Invert white logo to black on white bg
 
   return (
-    <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${navbarClasses}`}>
-      <div className="w-full flex h-20 items-center justify-between px-6 md:px-12 lg:px-16">
+    <header className={`fixed top-4 left-0 right-0 z-50 transition-all duration-300 mx-auto w-[95%] max-w-7xl rounded-full ${navbarClasses}`}>
+      <div className="w-full flex h-16 items-center justify-between px-6 md:px-8">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative h-10 w-10 overflow-hidden rounded-full">
