@@ -10,10 +10,10 @@ const timelineEvents = [
 
 export function Timeline() {
   return (
-    <section id="timeline" className="py-20 bg-muted/30">
+    <section id="timeline" className="py-28 bg-background">
       <div className="container px-4 md:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-primary mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-secondary mb-4">
             Timeline OPREC
           </h2>
           <p className="text-lg text-muted-foreground">

@@ -14,39 +14,42 @@ export function Hero() {
         playsInline
         className="absolute inset-0 h-full w-full object-cover"
       >
-        {/* Placeholder: User should replace this with actual video asset in public/ folder */}
-        <source src="/hero-video.mp4" type="video/mp4" />
+        <source src="/vid-banner.mp4" type="video/mp4" />
       </video>
       
-      {/* Fallback if video is missing or loading */}
+      {/* Fallback */}
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1596423736858-29307730e730?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center -z-10" />
 
       {/* Content Overlay */}
-      <div className="container relative z-20 flex flex-col items-center text-center text-white space-y-6 px-4">
-        {/* Logo Placement: Center as requested */}
-        <div className="relative h-24 w-24 md:h-32 md:w-32 rounded-full bg-white/10 backdrop-blur-sm mb-4 overflow-hidden border-2 border-primary/20">
+      <div className="container relative z-20 flex flex-col items-center text-center text-white px-4 animate-fade-in-up">
+        <div className="relative h-32 w-32 md:h-48 md:w-48 mb-4 animate-fade-in-up delay-100">
             <Image 
                 src="/Logo neira circle.png" 
                 alt="Logo Neira Basudara"
                 fill
-                className="object-cover"
+                className="object-contain"
             />
         </div>
         
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-          Neira Basudara
-        </h1>
+        <div className="relative mb-1 h-24 w-64 md:h-32 md:w-96 animate-fade-in-up delay-200">
+            <Image 
+                src="/Neira Basudara Text.png" 
+                alt="Neira Basudara"
+                fill
+                className="object-contain drop-shadow-lg"
+            />
+        </div>
         
-        <p className="text-lg md:text-2xl font-light max-w-2xl text-gray-200">
-          KKN-PPM UGM Banda Neira &bull; Maluku Tengah
+        <p className="text-lg md:text-2xl font-light max-w-2xl text-gray-200 mb-6 animate-fade-in-up delay-300">
+          KKN-PPM UGM Kec. Banda & Kep. Banda, Maluku Tengah
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 mt-8">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-8 py-6 h-auto" asChild>
-                <Link href="#admin">Kebutuhan Administrasi</Link>
-            </Button>
+        <div className="flex flex-col sm:flex-row gap-4 mt-2 animate-fade-in-up delay-300">
             <Button size="lg" variant="outline" className="text-white border-white bg-transparent hover:bg-white/20 hover:text-white font-semibold text-lg px-8 py-6 h-auto" asChild>
                 <Link href="#about">Tentang Kami</Link>
+            </Button>
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-8 py-6 h-auto" asChild>
+                <Link href="#admin">Kebutuhan Administrasi</Link>
             </Button>
         </div>
       </div>
