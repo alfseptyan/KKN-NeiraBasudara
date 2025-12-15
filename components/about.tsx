@@ -24,8 +24,8 @@ export function About() {
   };
 
   return (
-    <section id="about" className="py-20 md:py-32 bg-background">
-      <div className="container px-4 md:px-6">
+    <section id="about" className="w-full py-20 md:py-32 bg-background">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-4 mb-12">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-secondary">
             Tentang Neira Basudara

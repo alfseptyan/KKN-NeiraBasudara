@@ -3,10 +3,8 @@ import Image from "next/image";
 
 export function MapSection() {
   return (
-    <section id="location" className="py-20 bg-[#FDFBF7] relative overflow-visible">
-
-
-      <div className="container px-4 md:px-6 relative z-10">
+    <section id="location" className="w-full py-20 bg-[#FDFBF7] relative overflow-visible">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col items-center text-center space-y-4 mb-12">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-secondary">
             Lokasi KKN
