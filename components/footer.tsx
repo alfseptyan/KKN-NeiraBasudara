@@ -1,100 +1,105 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import { Instagram } from "lucide-react";
+import { Instagram, MapPin, Phone, Mail, ArrowUp } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="w-full bg-secondary text-white pt-12 pb-8">
-      <div className="container px-6 md:px-12 flex flex-col items-center">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8 text-center w-full max-w-5xl">
+    <footer className="w-full bg-secondary text-white pt-10 pb-6 relative overflow-hidden">
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between gap-8 mb-8">
           
-          {/* Brand Column */}
-          <div className="flex flex-col items-center space-y-4">
-            <div className="relative h-16 w-48">
-                <Image 
-                    src="/Neira Basudara Text.png" 
-                    alt="Neira Basudara"
-                    fill
-                    className="object-contain" 
-                />
+          {/* LEFT SECTION: Brand, Check, Address, Contact, Socials */}
+          <div className="flex flex-col space-y-4 max-w-lg">
+            {/* Branding - Order swapped: Text first, then Image */}
+            <div className="flex flex-col space-y-3">
+                <h2 className="text-lg md:text-xl font-bold tracking-tight leading-snug">
+                    KKN-PPM UGM Kec. Banda & Kep. Banda, Maluku Tengah
+                </h2>
+                <div className="relative h-8 w-32">
+                    <Image 
+                        src="/Neira Basudara Text.png" 
+                        alt="Neira Basudara"
+                        fill
+                        className="object-contain object-left" 
+                    />
+                </div>
             </div>
-            <p className="text-white/80 leading-relaxed max-w-xs mx-auto text-sm">
-              Media resmi KKN-PPM UGM di Banda Neira. Bergerak bersama masyarakat menuju pariwisata yang ekologis, berbudaya, dan berkelanjutan.
-            </p>
-            <div className="pt-2">
-                <span className="inline-block px-4 py-1.5 rounded-full border border-white/20 text-xs font-medium tracking-wide bg-white/5 backdrop-blur-sm">
-                    Periode 2 &bull; 2025
-                </span>
+
+            <div className="space-y-2 text-sm text-white/80">
+                <div className="flex items-start gap-3">
+                    <div className="mt-0.5 min-w-[16px]"><MapPin className="h-4 w-4 text-amber-300" /></div>
+                    <p className="leading-relaxed text-xs md:text-sm">
+                        Kecamatan Banda, Kabupaten Maluku Tengah,<br/>
+                        Provinsi Maluku, Indonesia.
+                    </p>
+                </div>
+                {/* Contact Info */}
+                <div className="flex items-center gap-3">
+                    <Phone className="h-4 w-4 text-amber-300" />
+                    <p className="text-xs md:text-sm">Narahubung: +62 815-7803-4989 (Haiba)</p>
+                </div>
+                <div className="flex items-center gap-3">
+                    <Mail className="h-4 w-4 text-amber-300" />
+                    <p className="text-xs md:text-sm">neirabasudara.kknugm@gmail.com</p>
+                </div>
+            </div>
+
+            {/* Social Icons Row */}
+            <div className="flex gap-3 pt-1">
+                 <Link href="https://www.instagram.com/neirabasudara" target="_blank" className="p-1.5 bg-white/10 rounded-lg hover:bg-amber-400 hover:text-secondary transition-all duration-300">
+                    <Instagram className="h-4 w-4" />
+                 </Link>
+                 <Link href="https://www.tiktok.com/@neira.basudara" target="_blank" className="p-1.5 bg-white/10 rounded-lg hover:bg-amber-400 hover:text-secondary transition-all duration-300">
+                    {/* TikTok Icon */}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                      <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                    </svg>
+                 </Link>
             </div>
           </div>
 
-          {/* Navigation Column */}
-          <div className="flex flex-col items-center space-y-4">
-            <h3 className="text-lg font-semibold tracking-wide">Jelajahi</h3>
-            <nav className="flex flex-col space-y-3 text-sm text-white/80">
-              <Link href="#about" className="hover:text-amber-300 transition-colors duration-300">Tentang Kami</Link>
-              <Link href="#location" className="hover:text-amber-300 transition-colors duration-300">Lokasi Desa</Link>
-              <Link href="#timeline" className="hover:text-amber-300 transition-colors duration-300">Timeline</Link>
-              <Link href="#gallery" className="hover:text-amber-300 transition-colors duration-300">Galeri</Link>
-              <Link href="#admin" className="hover:text-amber-300 transition-colors duration-300">Administrasi</Link>
-            </nav>
-          </div>
+          {/* RIGHT SECTION: Navigation Columns */}
+          {/* Pushed down less to match cleaner look */}
+          <div className="flex flex-col md:flex-row gap-8 md:gap-16 md:pt-20">
+            {/* Column 1 */}
+            <div className="flex flex-col space-y-3">
+                <h4 className="font-bold text-base">Eksplorasi</h4>
+                <nav className="flex flex-col space-y-1.5 text-sm text-white/80">
+                    <Link href="/" className="hover:text-amber-300 transition-colors">Beranda</Link>
+                    <Link href="#about" className="hover:text-amber-300 transition-colors">Tentang Kami</Link>
+                    <Link href="#location" className="hover:text-amber-300 transition-colors">Lokasi</Link>
+                    <Link href="#gallery" className="hover:text-amber-300 transition-colors">Galeri</Link>
+                </nav>
+            </div>
 
-          {/* Contact Column */}
-          <div className="flex flex-col items-center space-y-4">
-            <h3 className="text-lg font-semibold tracking-wide">Hubungi Kami</h3>
-            <div className="space-y-3 text-sm text-white/80">
-              <div className="flex flex-col items-center gap-1">
-                 <p className="font-medium text-white">Narahubung (CP)</p>
-                 <p className="hover:text-amber-300 transition-colors duration-300 cursor-pointer">Haiba: +62 815-7803-4989</p>
-              </div>
-              <div className="flex items-center justify-center gap-4 pt-1">
-                 <Link
-                    href="https://www.instagram.com/neirabasudara"
-                    className="flex items-center gap-2 hover:text-amber-300 transition-colors duration-300 group"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <div className="p-2.5 rounded-full bg-white/10 group-hover:bg-white/20 transition-all duration-300">
-                        <Instagram className="h-4 w-4" />
-                    </div>
-                  </Link>
-
-                  <Link
-                    href="https://www.tiktok.com/@neira.basudara"
-                    className="flex items-center gap-2 hover:text-amber-300 transition-colors duration-300 group"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <div className="p-2.5 rounded-full bg-white/10 group-hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
-                        {/* TikTok SVG Icon since it might not be in lucide-react */}
-                        <svg 
-                          viewBox="0 0 24 24" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          strokeWidth="2" 
-                          strokeLinecap="round" 
-                          strokeLinejoin="round" 
-                          className="h-4 w-4"
-                        >
-                          <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-                        </svg>
-                    </div>
-                  </Link>
-              </div>
+            {/* Column 2 */}
+            <div className="flex flex-col space-y-3">
+                <h4 className="font-bold text-base">Informasi</h4>
+                <nav className="flex flex-col space-y-1.5 text-sm text-white/80">
+                    <Link href="#timeline" className="hover:text-amber-300 transition-colors">Timeline</Link>
+                    <Link href="#admin" className="hover:text-amber-300 transition-colors">Pendaftaran</Link>
+                    <Link href="#faq" className="hover:text-amber-300 transition-colors">FAQ</Link>
+                </nav>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/20 flex flex-col items-center gap-6 text-sm text-white/60">
-            <p>&copy; {new Date().getFullYear()} KKN Neira Basudara. Universitas Gadjah Mada.</p>
-            <div className="flex gap-8">
-                <span className="hover:text-white transition-colors cursor-pointer duration-300">Privacy Policy</span>
-                <span className="hover:text-white transition-colors cursor-pointer duration-300">Terms of Service</span>
-            </div>
+        <div className="pt-6 border-t border-white/10 flex justify-center text-center text-[10px] md:text-xs text-white/50">
+            <p>&copy; 2026 KKN-PPM UGM Neira Basudara. All rights reserved.</p>
         </div>
       </div>
+
+      {/* Back to Top Button */}
+      <button 
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="absolute bottom-6 right-6 md:right-10 p-2.5 bg-amber-400 text-secondary rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 z-20"
+        aria-label="Back to top"
+      >
+        <ArrowUp className="h-5 w-5" />
+      </button>
     </footer>
   );
 }

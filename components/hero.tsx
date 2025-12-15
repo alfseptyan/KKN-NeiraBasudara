@@ -1,8 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
-export function Hero() {
+interface HeroProps {
+  onReady?: () => void;
+}
+
+export function Hero({ onReady }: HeroProps) {
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
       {/* Video Background */}
@@ -14,6 +20,7 @@ export function Hero() {
         playsInline
         poster="https://images.unsplash.com/photo-1596423736858-29307730e730?q=80&w=1920&auto=format&fit=crop"
         className="absolute inset-0 h-full w-full object-cover"
+        onLoadedData={onReady}
       >
         <source src="https://media.githubusercontent.com/media/alfseptyan/KKN-NeiraBasudara/master/public/videoNeira.mp4" type="video/mp4" />
       </video>
@@ -30,6 +37,7 @@ export function Hero() {
                 alt="Logo Neira Basudara"
                 fill
                 className="object-contain"
+                priority
             />
         </div>
         
@@ -39,6 +47,7 @@ export function Hero() {
                 alt="Neira Basudara"
                 fill
                 className="object-contain drop-shadow-lg"
+                priority
             />
         </div>
         
