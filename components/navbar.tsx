@@ -101,7 +101,7 @@ export function Navbar() {
             size="sm" 
             asChild
           >
-            <Link href="#admin">Daftar Sekarang</Link>
+            <Link href="https://docs.google.com/forms/d/e/1FAIpQLSdiA8apmbGaDEnD6EyP9pb_-gn31TrtTog1Rt_YqrCDvr-Y-A/viewform" target="_blank">Daftar Sekarang</Link>
           </Button>
         </nav>
 
@@ -132,7 +132,7 @@ export function Navbar() {
                   </Link>
                 ))}
                 <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-full" size="lg" asChild>
-                  <Link href="#admin" onClick={() => setIsOpen(false)}>
+                  <Link href="https://docs.google.com/forms/d/e/1FAIpQLSdiA8apmbGaDEnD6EyP9pb_-gn31TrtTog1Rt_YqrCDvr-Y-A/viewform" target="_blank" onClick={() => setIsOpen(false)}>
                     Daftar Sekarang
                   </Link>
                 </Button>
