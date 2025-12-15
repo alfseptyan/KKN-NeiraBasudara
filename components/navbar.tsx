@@ -1,18 +1,13 @@
 "use client";
 
-import * as React from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu } from "lucide-react";
+import { createPortal } from "react-dom";
 
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -23,11 +18,13 @@ const navItems = [
 ];
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [activeSection, setActiveSection] = React.useState("");
-  const [isScrolled, setIsScrolled] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       const sections = navItems.map(item => item.href.substring(1));
       
@@ -76,8 +73,8 @@ export function Navbar() {
   const logoFilter = isScrolled ? "invert(1)" : ""; // Invert white logo to black on white bg
 
   return (
-    <header className={`fixed top-4 left-0 right-0 z-50 transition-all duration-300 mx-auto w-[95%] max-w-7xl rounded-full ${navbarClasses}`}>
-      <div className="w-full flex h-16 items-center justify-between px-6 md:px-8">
+    <header className={`fixed top-2 md:top-4 left-0 right-0 z-50 transition-all duration-300 mx-auto w-[92%] md:w-[95%] max-w-7xl rounded-full ${navbarClasses}`}>
+      <div className="w-full flex h-14 md:h-16 items-center justify-between px-4 md:px-8">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative h-10 w-10 overflow-hidden rounded-full">
@@ -125,38 +122,69 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         <div className="md:hidden">
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className={isScrolled ? "text-secondary hover:bg-secondary/10" : "text-white hover:bg-white/10"}>
+            <Button 
+                variant="ghost" 
+                size="icon" 
+                className={isScrolled ? "text-secondary hover:bg-secondary/10" : "text-white hover:bg-white/10"}
+                onClick={() => setIsOpen(true)}
+            >
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="bg-white text-secondary">
-              <SheetHeader>
-                <SheetTitle className="text-left font-bold text-primary text-xl">
-                  Neira Basudara
-                </SheetTitle>
-              </SheetHeader>
-              <div className="flex flex-col space-y-6 mt-8">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="text-lg font-medium text-secondary hover:text-primary transition-colors border-b border-gray-100 pb-2"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-                <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-full" size="lg" asChild>
-                  <Link href="https://docs.google.com/forms/d/e/1FAIpQLSdiA8apmbGaDEnD6EyP9pb_-gn31TrtTog1Rt_YqrCDvr-Y-A/viewform" target="_blank" onClick={() => setIsOpen(false)}>
-                    Daftar Sekarang
-                  </Link>
-                </Button>
-              </div>
-            </SheetContent>
-          </Sheet>
+            </Button>
+
+            {/* Custom Centered Modal Menu - Portalled to body to escape z-index traps */}
+            {isOpen && mounted && createPortal(
+                <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+                    <div className="bg-white w-full max-w-sm rounded-[2rem] shadow-2xl p-6 relative animate-in zoom-in-95 duration-200">
+                        {/* Header */}
+                        <div className="flex items-center justify-between mb-8">
+                             <div className="flex items-center gap-2">
+                                <div className="relative h-8 w-8 overflow-hidden rounded-full">
+                                    <Image 
+                                        src="/Logo neira circle.png" 
+                                        alt="Logo"
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
+                                <span className="text-lg font-bold text-secondary">Neira Basudara</span>
+                            </div>
+                            <Button 
+                                variant="ghost" 
+                                size="icon" 
+                                className="rounded-full hover:bg-gray-100"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-gray-500"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                            </Button>
+                        </div>
+
+                        {/* Links */}
+                        <nav className="flex flex-col space-y-2 text-center">
+                            {navItems.map((item) => (
+                                <Link
+                                    key={item.href}
+                                    href={item.href}
+                                    className="block w-full py-3 text-lg font-medium text-secondary hover:text-primary hover:bg-orange-50 rounded-xl transition-colors"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    {item.name}
+                                </Link>
+                            ))}
+                        </nav>
+
+                        {/* CTA */}
+                        <div className="mt-8">
+                            <Button className="w-full bg-primary hover:bg-primary/90 text-white font-semibold rounded-full py-6 text-lg shadow-lg shadow-orange-200" asChild>
+                                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSdiA8apmbGaDEnD6EyP9pb_-gn31TrtTog1Rt_YqrCDvr-Y-A/viewform" target="_blank" onClick={() => setIsOpen(false)}>
+                                    Daftar Sekarang
+                                </Link>
+                            </Button>
+                        </div>
+                    </div>
+                </div>,
+                document.body
+            )}
         </div>
       </div>
     </header>

@@ -95,15 +95,18 @@ export function Gallery() {
               </div>
             </div>
 
-            {/* Grid aligned with header - Reduced aspect ratio to be shorter */}
-            <div className={cn(
-              "grid gap-2 animate-in fade-in zoom-in duration-700 key={activeTab}",
-              activeTab === "Pekan 4" 
-                ? "grid-cols-3 md:grid-cols-4" // Increased columns to make items smaller
-                : "grid-cols-3 md:grid-cols-3" 
-            )}>
+            {/* Flex Grid with Centered Orphans */}
+            <div className="flex flex-wrap justify-center gap-2 animate-in fade-in zoom-in duration-700">
                 {galleryData[activeTab].slice(0, activeTab === "Pekan 4" ? 8 : 6).map((src, idx) => (
-                    <div key={`${activeTab}-${idx}`} className="relative group overflow-hidden bg-gray-100 aspect-square"> {/* Square aspect ratio */}
+                    <div 
+                        key={`${activeTab}-${idx}`} 
+                        className={cn(
+                            "relative group overflow-hidden bg-gray-100 aspect-square",
+                            activeTab === "Pekan 4"
+                                ? "w-[calc(33.33%-6px)] md:w-[calc(25%-6px)]" 
+                                : "w-[calc(33.33%-6px)] md:w-[calc(33.33%-6px)]"
+                        )}
+                    > 
                         <Image 
                             src={src} 
                             alt={`Dokumentasi ${activeTab} - ${idx + 1}`}
