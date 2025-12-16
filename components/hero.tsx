@@ -61,7 +61,7 @@ export function Hero({ onReady }: HeroProps) {
                 <Link href="#about">Tentang Kami</Link>
             </Button>
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold text-base px-6 py-4 h-auto" asChild>
-                <Link href="#admin">Kebutuhan Administrasi</Link>
+                <Link href="#admin">Rekruitmen Terbuka</Link>
             </Button>
         </div>
       </div>

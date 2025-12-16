@@ -16,7 +16,7 @@ export function AdminSection() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-secondary mb-4">
-            Kebutuhan Administrasi
+            Rekruitmen Terbuka
           </h2>
           <p className="text-lg text-muted-foreground">
             Akses dokumen dan formulir pendaftaran di sini.
