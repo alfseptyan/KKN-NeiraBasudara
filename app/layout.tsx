@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "KKN Neira Basudara - Banda Neira",
   description: "Website Resmi KKN-PPM UGM Neira Basudara di Banda Neira, Maluku. Informasi, Edukasi, dan Open Recruitment.",
+  icons: {
+    icon: "/Logo neira circle.png",
+  },
 };
 
 export default function RootLayout({
