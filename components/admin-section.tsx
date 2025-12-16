@@ -10,14 +10,21 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import Image from "next/image";
+
 export function AdminSection() {
   return (
     <section id="admin" className="w-full py-28 bg-muted/30">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-secondary mb-4">
-            Rekruitmen Terbuka
-          </h2>
+          <div className="relative h-12 md:h-16 w-72 md:w-[28rem] mx-auto mb-4">
+             <Image
+                src="/Judul/Rekruitmen Terbuka1.png"
+                alt="Rekruitmen Terbuka"
+                fill
+                className="object-contain"
+             />
+          </div>
           <p className="text-lg text-muted-foreground">
             Akses dokumen dan formulir pendaftaran di sini.
           </p>

@@ -27,9 +27,14 @@ export function About() {
     <section id="about" className="w-full py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-4 mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-secondary">
-            Tentang Neira Basudara
-          </h2>
+          <div className="relative h-12 md:h-16 w-80 md:w-[36rem] mx-auto">
+             <Image
+                src="/Judul/Tentang1.png"
+                alt="Tentang Neira Basudara"
+                fill
+                className="object-contain"
+             />
+          </div>
           <p className="text-muted-foreground max-w-[800px] text-lg">
             KKN-PPM UGM Periode 2 di Banda Neira, Maluku Tengah.
           </p>

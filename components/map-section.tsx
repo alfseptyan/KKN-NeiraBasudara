@@ -6,9 +6,14 @@ export function MapSection() {
     <section id="location" className="w-full py-20 bg-[#FDFBF7] relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col items-center text-center space-y-4 mb-12 relative z-20">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-secondary">
-            Lokasi KKN
-          </h2>
+          <div className="relative h-12 md:h-16 w-32 md:w-48 mx-auto">
+             <Image
+                src="/Judul/Lokasi1.png"
+                alt="Lokasi KKN"
+                fill
+                className="object-contain"
+             />
+          </div>
           <p className="text-muted-foreground max-w-[800px] text-lg">
             Jelajahi sebaran lokasi KKN di Kepulauan Banda Neira.
           </p>

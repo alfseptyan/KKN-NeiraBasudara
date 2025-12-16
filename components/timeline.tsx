@@ -23,9 +23,14 @@ export function Timeline() {
                 className="object-contain"
               />
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-secondary mb-4">
-            Timeline
-          </h2>
+          <div className="relative h-12 md:h-16 w-40 md:w-56 mx-auto mb-4">
+             <Image
+                src="/Judul/Timeline1.png"
+                alt="Timeline"
+                fill
+                className="object-contain"
+             />
+          </div>
           <p className="text-lg text-muted-foreground">
             Catat tanggal penting rekrutmen kami.
           </p>

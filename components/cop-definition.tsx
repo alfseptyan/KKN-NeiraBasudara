@@ -22,9 +22,14 @@ export function CopDefinition() {
         {/* Section Header - Centered */}
         <div className="flex justify-center mb-10 md:mb-14">
             <div className="inline-block px-8 py-3 bg-white rounded-full border-2 border-dashed border-[#F4C5A2] shadow-sm transform hover:scale-105 transition-transform duration-300">
-                <h2 className="text-xl md:text-3xl font-bold tracking-tight text-[#3B9698]">
-                    Community of Practice (CoP)
-                </h2>
+                <div className="relative h-12 md:h-16 w-72 md:w-[32rem]">
+                    <Image
+                        src="/Judul/Community of Practice (CoP).png"
+                        alt="Community of Practice (CoP)"
+                        fill
+                        className="object-contain"
+                    />
+                </div>
             </div>
         </div>
 

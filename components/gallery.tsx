@@ -65,9 +65,14 @@ export function Gallery() {
                         className="object-contain"
                     />
                  </div>
-                <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-secondary mb-2 relative z-10">
-                  Galeri Kegiatan
-                </h2>
+                <div className="relative h-12 md:h-16 w-64 md:w-96 mb-2 relative z-10">
+                   <Image
+                      src="/Judul/Galeri Kegiatan1.png"
+                      alt="Galeri Kegiatan"
+                      fill
+                      className="object-contain object-left"
+                   />
+                </div>
                 <p className="text-muted-foreground max-w-xl text-base font-medium relative z-10">
                   Jelajahi momen berkesan dari perjalanan KKN-PPM UGM di Banda Neira.
                 </p>
