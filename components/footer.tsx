@@ -17,7 +17,7 @@ export function Footer() {
                 <h2 className="text-lg md:text-xl font-bold tracking-tight leading-snug">
                     KKN-PPM UGM Kec. Banda & Kep. Banda, Maluku Tengah
                 </h2>
-                <div className="relative h-8 w-32">
+                <div className="relative h-10 w-40">
                     <Image 
                         src="/Neira Basudara Text2.png" 
                         alt="Neira Basudara"

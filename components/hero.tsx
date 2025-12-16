@@ -42,7 +42,7 @@ export function Hero({ onReady }: HeroProps) {
         </div>
         
         {/* Logo Text */}
-        <div className="relative h-12 md:h-16 w-64 md:w-80 animate-in fade-in zoom-in duration-1000 delay-300">
+        <div className="relative h-16 md:h-24 w-80 md:w-[30rem] animate-in fade-in zoom-in duration-1000 delay-300">
             <Image 
                 src="/Neira Basudara Text2.png" 
                 alt="Neira Basudara"
