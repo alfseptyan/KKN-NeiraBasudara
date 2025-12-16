@@ -147,7 +147,14 @@ export function Navbar() {
                                         className="object-contain"
                                     />
                                 </div>
-                                <span className="text-lg font-bold text-secondary">Neira Basudara</span>
+                                <div className="relative h-6 w-32 ml-1">
+                                    <Image 
+                                        src="/Neira Basudara Text2.png" 
+                                        alt="Neira Basudara"
+                                        fill
+                                        className="object-contain brightness-0"
+                                    />
+                                </div>
                             </div>
                             <Button 
                                 variant="ghost" 
