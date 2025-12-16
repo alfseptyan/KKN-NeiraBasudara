@@ -87,7 +87,7 @@ export function Navbar() {
             </div>
             <div className="relative h-8 w-40 ml-2" style={{ filter: isScrolled ? "invert(1) brightness(0.2)" : "" }}>
                 <Image 
-                    src="/Neira Basudara Text.png" 
+                    src="/Neira Basudara Text2.png" 
                     alt="Neira Basudara"
                     fill
                     className="object-contain"

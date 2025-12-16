@@ -19,7 +19,7 @@ export function Footer() {
                 </h2>
                 <div className="relative h-8 w-32">
                     <Image 
-                        src="/Neira Basudara Text.png" 
+                        src="/Neira Basudara Text2.png" 
                         alt="Neira Basudara"
                         fill
                         className="object-contain object-left" 
@@ -82,6 +82,7 @@ export function Footer() {
                 <nav className="flex flex-col space-y-1.5 text-sm text-white/80">
                     <Link href="#timeline" className="hover:text-amber-300 transition-colors">Timeline</Link>
                     <Link href="#admin" className="hover:text-amber-300 transition-colors">Pendaftaran</Link>
+                    <Link href="https://s.id/GuidebookNeiraBasudara2026" target="_blank" className="hover:text-amber-300 transition-colors">Guidebook</Link>
                     <Link href="#faq" className="hover:text-amber-300 transition-colors">FAQ</Link>
                 </nav>
             </div>

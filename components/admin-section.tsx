@@ -45,7 +45,7 @@ export function AdminSection() {
             <Card className="hover:shadow-lg transition-shadow border-primary/20 bg-background">
                 <CardHeader>
                     <BookOpen className="h-10 w-10 text-primary mb-2" />
-                    <CardTitle>Guidebook OPREC</CardTitle>
+                    <CardTitle>Guidebook</CardTitle>
                     <CardDescription>Panduan lengkap pendaftaran KKN.</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
@@ -53,7 +53,7 @@ export function AdminSection() {
                 </CardContent>
                 <CardFooter>
                     <Button variant="outline" className="w-full gap-2" asChild>
-                        <Link href="/docs/guidebook.pdf" target="_blank">
+                        <Link href="https://s.id/GuidebookNeiraBasudara2026" target="_blank">
                             <BookOpen className="h-4 w-4" /> Baca Guidebook
                         </Link>
                     </Button>

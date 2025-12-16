@@ -41,12 +41,13 @@ export function Hero({ onReady }: HeroProps) {
             />
         </div>
         
-        <div className="relative mb-1 h-24 w-64 md:h-32 md:w-96 animate-fade-in-up delay-200">
+        {/* Logo Text */}
+        <div className="relative h-12 md:h-16 w-64 md:w-80 animate-in fade-in zoom-in duration-1000 delay-300">
             <Image 
-                src="/Neira Basudara Text.png" 
+                src="/Neira Basudara Text2.png" 
                 alt="Neira Basudara"
                 fill
-                className="object-contain drop-shadow-lg"
+                className="object-contain brightness-0 invert"
                 priority
             />
         </div>
