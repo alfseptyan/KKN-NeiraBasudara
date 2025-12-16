@@ -17,7 +17,7 @@ export function AdminSection() {
     <section id="admin" className="w-full py-28 bg-muted/30">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
-          <div className="relative h-12 md:h-16 w-72 md:w-[28rem] mx-auto mb-4">
+          <div className="relative h-12 lg:h-16 w-72 lg:w-[28rem] mx-auto mb-4">
              <Image
                 src="/Judul/Rekruitmen Terbuka1.png"
                 alt="Rekruitmen Terbuka"
@@ -30,7 +30,7 @@ export function AdminSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <Card className="hover:shadow-lg transition-shadow border-primary/20 bg-background">
                 <CardHeader>
                     <FileText className="h-10 w-10 text-primary mb-2" />

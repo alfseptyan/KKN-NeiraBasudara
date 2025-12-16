@@ -15,7 +15,7 @@ export function Timeline() {
       <div className="container px-4 md:px-6">
         <div className="text-center mb-16 relative">
           {/* Butterfly Decoration */}
-          <div className="absolute top-0 right-10 md:right-[20%] w-16 h-16 md:w-20 md:h-20 opacity-60 pointer-events-none rotate-12">
+          <div className="absolute top-0 right-10 lg:right-[20%] w-16 h-16 lg:w-20 lg:h-20 opacity-60 pointer-events-none rotate-12">
               <Image 
                 src="/Asset/asset kupu-kupu.png" 
                 alt="Kupu-Kupu" 
@@ -23,7 +23,7 @@ export function Timeline() {
                 className="object-contain"
               />
           </div>
-          <div className="relative h-12 md:h-16 w-40 md:w-56 mx-auto mb-4">
+          <div className="relative h-12 lg:h-16 w-40 lg:w-56 mx-auto mb-4">
              <Image
                 src="/Judul/Timeline1.png"
                 alt="Timeline"
@@ -37,7 +37,7 @@ export function Timeline() {
         </div>
 
         {/* Desktop Timeline (Horizontal) */}
-        <div className="hidden md:flex justify-between items-start relative px-4">
+        <div className="hidden lg:flex justify-between items-start relative px-4">
             {/* Line connector */}
             <div className="absolute top-6 left-0 right-0 h-1 bg-muted-foreground/20 -z-10 mx-10 rounded-full" />
             
@@ -56,7 +56,7 @@ export function Timeline() {
         </div>
 
         {/* Mobile Timeline (Vertical) */}
-        <div className="md:hidden space-y-8 pl-4 border-l-2 border-primary/20 ml-4 relative">
+        <div className="lg:hidden space-y-8 pl-4 border-l-2 border-primary/20 ml-4 relative">
             {timelineEvents.map((event, idx) => (
                 <div key={idx} className="relative pl-6">
                     <div className={`absolute -left-[33px] top-0 h-10 w-10 rounded-full flex items-center justify-center border-4 ${idx === 0 ? "bg-primary border-primary/20 text-white" : "bg-background border-muted text-muted-foreground"}`}>

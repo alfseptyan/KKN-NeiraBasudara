@@ -24,10 +24,10 @@ export function About() {
   };
 
   return (
-    <section id="about" className="w-full py-20 md:py-32 bg-background">
+    <section id="about" className="w-full py-20 lg:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-4 mb-12">
-          <div className="relative h-12 md:h-16 w-80 md:w-[36rem] mx-auto">
+          <div className="relative h-12 lg:h-16 w-80 lg:w-[36rem] mx-auto">
              <Image
                 src="/Judul/Tentang1.png"
                 alt="Tentang Neira Basudara"
@@ -40,8 +40,8 @@ export function About() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed order-2 md:order-1 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed order-2 lg:order-1 relative">
                 {/* Batik Decoration */}
                 <div className="absolute -top-10 -left-10 w-32 h-32 opacity-10 pointer-events-none -z-10 rotate-12">
                    <Image 
@@ -63,7 +63,7 @@ export function About() {
             </div>
             
             {/* Image Slider */}
-            <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl bg-muted order-1 md:order-2 group">
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl bg-muted order-1 lg:order-2 group">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={currentIndex}

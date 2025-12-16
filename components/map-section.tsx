@@ -6,7 +6,7 @@ export function MapSection() {
     <section id="location" className="w-full py-20 bg-[#FDFBF7] relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col items-center text-center space-y-4 mb-12 relative z-20">
-          <div className="relative h-12 md:h-16 w-32 md:w-48 mx-auto">
+          <div className="relative h-12 lg:h-16 w-32 lg:w-48 mx-auto">
              <Image
                 src="/Judul/Lokasi1.png"
                 alt="Lokasi KKN"
@@ -19,9 +19,9 @@ export function MapSection() {
           </p>
         </div>
 
-        <div className="w-full relative mt-8 md:mt-12">
+        <div className="w-full relative mt-8 lg:mt-12">
             {/* Rotating Flower Decoration - Large and behind the map box */}
-            <div className="absolute -top-20 -right-10 md:-top-32 md:-right-32 w-48 h-48 md:w-96 md:h-96 opacity-100 pointer-events-none z-0">
+            <div className="absolute -top-20 -right-10 lg:-top-32 lg:-right-32 w-48 h-48 lg:w-96 lg:h-96 opacity-100 pointer-events-none z-0">
                 <div className="w-full h-full animate-[spin_20s_linear_infinite]">
                     <Image
                         src="/Asset/asset bunga.png"
@@ -33,7 +33,7 @@ export function MapSection() {
             </div>
             
             {/* Dashed Border Container */}
-            <div className="relative z-10 p-2 md:p-4 border-4 border-dashed border-orange-300/60 rounded-[2rem] bg-white/20 backdrop-blur-sm shadow-xl">
+            <div className="relative z-10 p-2 lg:p-4 border-4 border-dashed border-orange-300/60 rounded-[2rem] bg-white/20 backdrop-blur-sm shadow-xl">
                  <InteractiveMap />
             </div>
         </div>

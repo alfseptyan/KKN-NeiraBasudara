@@ -135,7 +135,7 @@ export function InteractiveMap() {
       </div>
 
       {/* Map Area */}
-      <div className="w-full h-full flex items-center justify-center p-0 md:pr-[450px] pb-12 md:pb-0">
+      <div className="w-full h-full flex items-center justify-center p-4 xl:pr-[400px] pb-[280px] xl:pb-4">
         <svg
           viewBox="0 0 3507 2480"
           className="w-full h-full drop-shadow-xl"
@@ -174,14 +174,14 @@ export function InteractiveMap() {
         </div>
       )}
 
-      {/* Floating Info Panel (Desktop: Top Right, Mobile: Bottom Sheet relative) */}
-      <div className="absolute md:top-4 md:right-4 bottom-0 left-0 right-0 md:left-auto md:w-[420px] flex flex-col gap-3 z-20 max-h-[50vh] md:max-h-[calc(100%-2rem)] overflow-y-auto pr-1 scrollbar-hide p-4 md:p-0 bg-gradient-to-t from-white/90 via-white/80 to-transparent md:bg-none">
+      {/* Floating Info Panel (Desktop: Top Right, Mobile/Tablet: Bottom Sheet) */}
+      <div className="absolute xl:top-4 xl:right-4 bottom-0 left-0 right-0 xl:left-auto xl:w-[380px] flex flex-col gap-3 z-20 max-h-[260px] xl:max-h-[calc(100%-2rem)] overflow-y-auto p-4 xl:p-0 bg-gradient-to-t from-white via-white/95 to-transparent xl:bg-none">
         
         {/* Detail Box */}
         <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white/95 backdrop-blur-md rounded-xl border shadow-lg p-5 w-full order-2 md:order-1"
+            className="bg-white/95 backdrop-blur-md rounded-xl border shadow-lg p-4 w-full order-2 xl:order-1"
         >
             <h3 className="text-xl font-bold text-secondary mb-1">
                 {activeVillage ? activeVillage.name : "Info Wilayah"}
@@ -201,8 +201,8 @@ export function InteractiveMap() {
             )}
         </motion.div>
 
-        {/* Legend Box (Compact) */}
-        <div className="bg-white/90 backdrop-blur-md rounded-xl p-5 border shadow-lg w-full hidden md:block order-1 md:order-2">
+        {/* Legend Box (Compact - Hidden on Tablet/Mobile) */}
+        <div className="bg-white/90 backdrop-blur-md rounded-xl p-4 border shadow-lg w-full hidden xl:block order-1 xl:order-2">
             <h4 className="font-semibold text-xs uppercase tracking-wider text-muted-foreground mb-3">Legenda</h4>
             <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                 {villages.map(v => (

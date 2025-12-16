@@ -8,13 +8,13 @@ export function Footer() {
   return (
     <footer className="w-full bg-secondary text-white pt-10 pb-6 relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between gap-8 mb-8">
+        <div className="flex flex-col lg:flex-row justify-between gap-8 mb-8">
           
           {/* LEFT SECTION: Brand, Check, Address, Contact, Socials */}
           <div className="flex flex-col space-y-4 max-w-lg">
             {/* Branding - Order swapped: Text first, then Image */}
             <div className="flex flex-col space-y-3">
-                <h2 className="text-lg md:text-xl font-bold tracking-tight leading-snug">
+                <h2 className="text-lg lg:text-xl font-bold tracking-tight leading-snug">
                     KKN-PPM UGM Kec. Banda & Kep. Banda, Maluku Tengah
                 </h2>
                 <div className="relative h-10 w-40">
@@ -30,7 +30,7 @@ export function Footer() {
             <div className="space-y-2 text-sm text-white/80">
                 <div className="flex items-start gap-3">
                     <div className="mt-0.5 min-w-[16px]"><MapPin className="h-4 w-4 text-amber-300" /></div>
-                    <p className="leading-relaxed text-xs md:text-sm">
+                    <p className="leading-relaxed text-xs lg:text-sm">
                         Kecamatan Banda, Kabupaten Maluku Tengah,<br/>
                         Provinsi Maluku, Indonesia.
                     </p>
@@ -38,11 +38,11 @@ export function Footer() {
                 {/* Contact Info */}
                 <div className="flex items-center gap-3">
                     <Phone className="h-4 w-4 text-amber-300" />
-                    <p className="text-xs md:text-sm">Narahubung: +62 815-7803-4989 (Haiba)</p>
+                    <p className="text-xs lg:text-sm">Narahubung: +62 815-7803-4989 (Haiba)</p>
                 </div>
                 <div className="flex items-center gap-3">
                     <Mail className="h-4 w-4 text-amber-300" />
-                    <p className="text-xs md:text-sm">neirabasudara.kknugm@gmail.com</p>
+                    <p className="text-xs lg:text-sm">neirabasudara.kknugm@gmail.com</p>
                 </div>
             </div>
 
@@ -64,7 +64,7 @@ export function Footer() {
           {/* Pushed down less to match cleaner look */}
           {/* RIGHT SECTION: Navigation Columns */}
           {/* Pushed down less to match cleaner look */}
-          <div className="grid grid-cols-2 gap-8 md:gap-16 md:pt-20">
+          <div className="grid grid-cols-2 gap-8 lg:gap-16 lg:pt-20">
             {/* Column 1 */}
             <div className="flex flex-col space-y-3">
                 <h4 className="font-bold text-base">Eksplorasi</h4>
@@ -90,7 +90,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 border-t border-white/10 flex justify-center text-center text-[10px] md:text-xs text-white/50">
+        <div className="pt-6 border-t border-white/10 flex justify-center text-center text-[10px] lg:text-xs text-white/50">
             <p>&copy; 2026 KKN-PPM UGM Neira Basudara. All rights reserved.</p>
         </div>
       </div>
@@ -98,7 +98,7 @@ export function Footer() {
       {/* Back to Top Button */}
       <button 
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="absolute bottom-6 right-6 md:right-10 p-2.5 bg-amber-400 text-secondary rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 z-20"
+        className="absolute bottom-6 right-6 lg:right-10 p-2.5 bg-amber-400 text-secondary rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 z-20"
         aria-label="Back to top"
       >
         <ArrowUp className="h-5 w-5" />

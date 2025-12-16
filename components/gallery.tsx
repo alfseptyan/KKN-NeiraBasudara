@@ -54,7 +54,7 @@ export function Gallery() {
       <div className="w-full px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
             {/* Header aligned with grid */}
-            <div className="flex flex-col md:flex-row justify-between items-end mb-6 gap-4 border-b border-orange-200/50 pb-4">
+            <div className="flex flex-col lg:flex-row justify-between items-end mb-6 gap-4 border-b border-orange-200/50 pb-4">
               <div className="text-left relative">
                  {/* Flower Decoration */}
                  <div className="absolute -top-10 -left-6 w-20 h-20 opacity-80 pointer-events-none -z-10">
@@ -65,7 +65,7 @@ export function Gallery() {
                         className="object-contain"
                     />
                  </div>
-                <div className="relative h-12 md:h-16 w-64 md:w-96 mb-2 relative z-10">
+                <div className="relative h-12 lg:h-16 w-64 lg:w-96 mb-2 relative z-10">
                    <Image
                       src="/Judul/Galeri Kegiatan1.png"
                       alt="Galeri Kegiatan"
@@ -100,16 +100,22 @@ export function Gallery() {
               </div>
             </div>
 
-            {/* Flex Grid with Centered Orphans */}
-            <div className="flex flex-wrap justify-center gap-2 animate-in fade-in zoom-in duration-700">
-                {galleryData[activeTab].slice(0, activeTab === "Pekan 4" ? 8 : 6).map((src, idx) => (
+            {/* Grid with last row centered */}
+            {(() => {
+                const images = galleryData[activeTab].slice(0, activeTab === "Pekan 4" ? 8 : 6);
+                const itemsPerRow = activeTab === "Pekan 4" ? 4 : 3; // lg breakpoint
+                const fullRowsCount = Math.floor(images.length / itemsPerRow) * itemsPerRow;
+                const fullRowImages = images.slice(0, fullRowsCount);
+                const lastRowImages = images.slice(fullRowsCount);
+                
+                const renderImage = (src: string, idx: number) => (
                     <div 
                         key={`${activeTab}-${idx}`} 
                         className={cn(
                             "relative group overflow-hidden bg-gray-100 aspect-[4/5]",
                             activeTab === "Pekan 4"
-                                ? "w-[calc(33.33%-6px)] md:w-[calc(25%-6px)]" 
-                                : "w-[calc(33.33%-6px)] md:w-[calc(33.33%-6px)]"
+                                ? "w-[calc(33.33%-6px)] lg:w-[calc(25%-6px)]" 
+                                : "w-[calc(33.33%-6px)] lg:w-[calc(33.33%-6px)]"
                         )}
                     > 
                         <Image 
@@ -127,8 +133,23 @@ export function Gallery() {
                            </span>
                         </div>
                     </div>
-                ))}
-            </div>
+                );
+                
+                return (
+                    <div className="animate-in fade-in zoom-in duration-700">
+                        {/* Full rows - left aligned */}
+                        <div className="flex flex-wrap justify-start gap-2">
+                            {fullRowImages.map((src, idx) => renderImage(src, idx))}
+                        </div>
+                        {/* Last row - centered */}
+                        {lastRowImages.length > 0 && (
+                            <div className="flex flex-wrap justify-center gap-2 mt-2">
+                                {lastRowImages.map((src, idx) => renderImage(src, fullRowsCount + idx))}
+                            </div>
+                        )}
+                    </div>
+                );
+            })()}
         </div>
       </div>
     </section>

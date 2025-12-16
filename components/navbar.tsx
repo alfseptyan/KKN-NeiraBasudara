@@ -73,8 +73,8 @@ export function Navbar() {
   const logoFilter = isScrolled ? "invert(1)" : ""; // Invert white logo to black on white bg
 
   return (
-    <header className={`fixed top-2 md:top-4 left-0 right-0 z-50 transition-all duration-300 mx-auto w-[92%] md:w-[95%] max-w-7xl rounded-full ${navbarClasses}`}>
-      <div className="w-full flex h-14 md:h-16 items-center justify-between px-4 md:px-8">
+    <header className={`fixed top-2 lg:top-4 left-0 right-0 z-50 transition-all duration-300 mx-auto w-[92%] lg:w-[95%] max-w-7xl rounded-full ${navbarClasses}`}>
+      <div className="w-full flex h-14 lg:h-16 items-center justify-between px-4 lg:px-8">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative h-10 w-10 overflow-hidden rounded-full">
@@ -97,7 +97,7 @@ export function Navbar() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -121,7 +121,7 @@ export function Navbar() {
         </nav>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
             <Button 
                 variant="ghost" 
                 size="icon" 

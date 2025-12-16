@@ -17,12 +17,12 @@ export function CopDefinition() {
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Dashed Border Container Frame */}
-        <div className="absolute inset-0 border-4 border-dashed border-white/50 rounded-[3rem] pointer-events-none -z-10 m-4 md:m-0" />
+        <div className="absolute inset-0 border-4 border-dashed border-white/50 rounded-[3rem] pointer-events-none -z-10 m-4 lg:m-0" />
 
         {/* Section Header - Centered */}
-        <div className="flex justify-center mb-10 md:mb-14">
+        <div className="flex justify-center mb-10 lg:mb-14">
             <div className="inline-block px-8 py-3 bg-white rounded-full border-2 border-dashed border-[#F4C5A2] shadow-sm transform hover:scale-105 transition-transform duration-300">
-                <div className="relative h-12 md:h-16 w-72 md:w-[32rem]">
+                <div className="relative h-12 lg:h-16 w-72 lg:w-[32rem]">
                     <Image
                         src="/Judul/Community of Practice (CoP).png"
                         alt="Community of Practice (CoP)"
@@ -33,12 +33,12 @@ export function CopDefinition() {
             </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
              
              {/* Left Column: Image */}
              <div className="relative">
                  {/* Bird Decoration - Floating */}
-                 <div className="absolute -top-12 -right-4 z-20 w-24 h-24 md:w-32 md:h-32 pointer-events-none animate-bounce duration-[3000ms]">
+                 <div className="absolute -top-12 -right-4 z-20 w-24 h-24 lg:w-32 lg:h-32 pointer-events-none animate-bounce duration-[3000ms]">
                     <Image 
                         src="/Asset/asset burung.png" 
                         alt="Burung Banda" 
@@ -47,7 +47,7 @@ export function CopDefinition() {
                     />
                  </div>
                  
-                 <div className="relative aspect-video md:aspect-square rounded-3xl overflow-hidden shadow-2xl border-8 border-dashed border-[#F4C5A2]/50 bg-white transform hover:rotate-1 transition-transform duration-500">
+                 <div className="relative aspect-video lg:aspect-square rounded-3xl overflow-hidden shadow-2xl border-8 border-dashed border-[#F4C5A2]/50 bg-white transform hover:rotate-1 transition-transform duration-500">
                     <Image
                         src="/GambarCOP.png"
                         alt="Community of Practice Activity"

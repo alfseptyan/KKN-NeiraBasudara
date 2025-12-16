@@ -31,7 +31,7 @@ export function Hero({ onReady }: HeroProps) {
 
       {/* Content Overlay */}
       <div className="container relative z-20 flex flex-col items-center text-center text-white px-4 animate-fade-in-up">
-        <div className="relative h-32 w-32 md:h-48 md:w-48 mb-4 animate-fade-in-up delay-100">
+        <div className="relative h-32 w-32 lg:h-48 lg:w-48 mb-4 animate-fade-in-up delay-100">
             <Image 
                 src="/Logo neira circle.png" 
                 alt="Logo Neira Basudara"
@@ -42,7 +42,7 @@ export function Hero({ onReady }: HeroProps) {
         </div>
         
         {/* Logo Text */}
-        <div className="relative h-16 md:h-24 w-80 md:w-[30rem] animate-in fade-in zoom-in duration-1000 delay-300">
+        <div className="relative h-16 lg:h-24 w-80 lg:w-[30rem] animate-in fade-in zoom-in duration-1000 delay-300">
             <Image 
                 src="/Neira Basudara Text2.png" 
                 alt="Neira Basudara"
@@ -52,7 +52,7 @@ export function Hero({ onReady }: HeroProps) {
             />
         </div>
         
-        <p className="text-lg md:text-2xl font-light max-w-2xl text-gray-200 mb-6 animate-fade-in-up delay-300">
+        <p className="text-lg lg:text-2xl font-light max-w-2xl text-gray-200 mb-6 animate-fade-in-up delay-300">
           KKN-PPM UGM Kec. Banda & Kep. Banda, Maluku Tengah
         </p>
 
