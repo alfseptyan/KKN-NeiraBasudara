@@ -6,7 +6,7 @@ const timelineEvents = [
   { date: "20 Des 2025", title: "Pengumuman Hasil Seleksi", status: "upcoming", desc: "Seleksi administrasi & berkas." },
   { date: "22–23 Des 2025", title: "Wawancara", status: "upcoming", desc: "Sesi wawancara & penugasan." },
   { date: "24 Des 2025", title: "Pengumuman Akhir", status: "upcoming", desc: "Pukul 15.00 WIB." },
-  { date: "24 Des 2025", title: "Batas Konfirmasi", status: "upcoming", desc: "Konfirmasi ke Narahubung maks. 23.59." },
+  { date: "24 Des 2025", title: "Batas Konfirmasi", status: "upcoming", desc: "Konfirmasi ke Narahubung maks. pukul 23.59 WIB." },
 ];
 
 export function Timeline() {
@@ -42,7 +42,7 @@ export function Timeline() {
             <div className="absolute top-6 left-0 right-0 h-1 bg-muted-foreground/20 -z-10 mx-10 rounded-full" />
             
             {timelineEvents.map((event, idx) => (
-                <div key={idx} className="flex flex-col items-center text-center space-y-4 w-48 relative">
+                <div key={idx} className="flex flex-col items-center text-center space-y-4 w-60 relative">
                     <div className={`h-12 w-12 rounded-full flex items-center justify-center border-4 ${idx === 0 ? "bg-primary border-primary/20 text-white" : "bg-background border-muted text-muted-foreground"}`}>
                         {idx === 0 ? <CheckCircle2 className="h-6 w-6" /> : <Clock className="h-6 w-6" />}
                     </div>

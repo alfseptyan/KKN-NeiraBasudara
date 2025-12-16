@@ -106,7 +106,7 @@ export function Gallery() {
                     <div 
                         key={`${activeTab}-${idx}`} 
                         className={cn(
-                            "relative group overflow-hidden bg-gray-100 aspect-square",
+                            "relative group overflow-hidden bg-gray-100 aspect-[4/5]",
                             activeTab === "Pekan 4"
                                 ? "w-[calc(33.33%-6px)] md:w-[calc(25%-6px)]" 
                                 : "w-[calc(33.33%-6px)] md:w-[calc(33.33%-6px)]"
