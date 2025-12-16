@@ -5,7 +5,7 @@ export function MapSection() {
   return (
     <section id="location" className="w-full py-20 bg-[#FDFBF7] relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="flex flex-col items-center text-center space-y-4 mb-12">
+        <div className="flex flex-col items-center text-center space-y-4 mb-12 relative z-20">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-secondary">
             Lokasi KKN
           </h2>
@@ -16,7 +16,7 @@ export function MapSection() {
 
         <div className="w-full relative mt-8 md:mt-12">
             {/* Rotating Flower Decoration - Large and behind the map box */}
-            <div className="absolute -top-10 -right-10 md:-top-32 md:-right-32 w-48 h-48 md:w-96 md:h-96 opacity-100 pointer-events-none z-0">
+            <div className="absolute -top-20 -right-10 md:-top-32 md:-right-32 w-48 h-48 md:w-96 md:h-96 opacity-100 pointer-events-none z-0">
                 <div className="w-full h-full animate-[spin_20s_linear_infinite]">
                     <Image
                         src="/Asset/asset bunga.png"

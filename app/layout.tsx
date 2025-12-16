@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Figtree } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const figtree = Figtree({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "KKN Neira Basudara - Banda Neira",
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="id" className="scroll-smooth">
       <body
-        className={`${inter.className} antialiased min-h-screen flex flex-col overflow-x-hidden`}
+        className={`${figtree.className} antialiased min-h-screen flex flex-col overflow-x-hidden`}
       >
         <Navbar />
         <main className="flex-1 w-full flex flex-col items-center">
