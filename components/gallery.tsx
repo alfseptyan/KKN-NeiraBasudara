@@ -111,11 +111,11 @@ export function Gallery() {
                 const renderImage = (src: string, idx: number) => (
                     <div 
                         key={`${activeTab}-${idx}`} 
-                        className={cn(
+                    className={cn(
                             "relative group overflow-hidden bg-gray-100 aspect-[4/5]",
                             activeTab === "Pekan 4"
-                                ? "w-[calc(33.33%-6px)] lg:w-[calc(25%-6px)]" 
-                                : "w-[calc(33.33%-6px)] lg:w-[calc(33.33%-6px)]"
+                                ? "w-[calc(50%-4px)] md:w-[calc(25%-6px)]" 
+                                : "w-[calc(50%-4px)] md:w-[calc(33.33%-6px)]"
                         )}
                     > 
                         <Image 
