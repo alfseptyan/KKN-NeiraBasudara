@@ -137,9 +137,9 @@ export function Navbar() {
                 <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
                     <div className="bg-white w-full max-w-sm rounded-[2rem] shadow-2xl p-6 relative animate-in zoom-in-95 duration-200">
                         {/* Header */}
-                        <div className="flex items-center justify-between mb-8">
-                             <div className="flex items-center gap-2">
-                                <div className="relative h-8 w-8 overflow-hidden rounded-full">
+                        <div className="relative flex items-center justify-center mb-8">
+                             <div className="flex items-center gap-0">
+                                <div className="relative h-12 w-12 overflow-hidden rounded-full">
                                     <Image 
                                         src="/Logo neira circle.png" 
                                         alt="Logo"
@@ -147,7 +147,7 @@ export function Navbar() {
                                         className="object-contain"
                                     />
                                 </div>
-                                <div className="relative h-6 w-32 ml-1">
+                                <div className="relative h-10 w-44 ml-1">
                                     <Image 
                                         src="/Neira Basudara Text2.png" 
                                         alt="Neira Basudara"
@@ -159,7 +159,7 @@ export function Navbar() {
                             <Button 
                                 variant="ghost" 
                                 size="icon" 
-                                className="rounded-full hover:bg-gray-100"
+                                className="absolute right-0 top-1/2 -translate-y-1/2 rounded-full hover:bg-gray-100"
                                 onClick={() => setIsOpen(false)}
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-gray-500"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
