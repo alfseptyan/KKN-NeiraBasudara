@@ -22,7 +22,7 @@ export function Hero({ onReady }: HeroProps) {
         className="absolute inset-0 h-full w-full object-cover"
         onLoadedData={onReady}
       >
-        <source src="https://media.githubusercontent.com/media/alfseptyan/KKN-NeiraBasudara/master/public/videoNeira.mp4" type="video/mp4" />
+        <source src="/Neira Video Fix2.mp4" type="video/mp4" />
       </video>
 
       {/* Robust Fallback/Overlay - Ensures background is never blank */}
