@@ -127,7 +127,7 @@ export function InteractiveMap() {
   const [hoveredVillage, setHoveredVillage] = useState<string | null>(null);
 
   return (
-    <div className="relative w-full h-[65vh] bg-slate-50/30 rounded-2xl overflow-hidden border">
+    <div className="relative w-full h-[55vh] bg-slate-50/30 rounded-2xl overflow-hidden border">
       
       {/* Helper Text (Bottom Left) */}
       <div className="absolute bottom-6 left-6 z-10 bg-white/80 backdrop-blur px-4 py-2 rounded-full text-sm text-muted-foreground shadow-sm pointer-events-none border">
@@ -135,7 +135,7 @@ export function InteractiveMap() {
       </div>
 
       {/* Map Area */}
-      <div className="w-full h-full flex items-center justify-center p-4 xl:pr-[400px] pb-[280px] xl:pb-4">
+      <div className="w-full h-full flex items-center justify-center p-4 xl:pr-[400px] pb-[140px] xl:pb-4">
         <svg
           viewBox="0 0 3507 2480"
           className="w-full h-full drop-shadow-xl"
@@ -175,7 +175,7 @@ export function InteractiveMap() {
       )}
 
       {/* Floating Info Panel (Desktop: Top Right, Mobile/Tablet: Bottom Sheet) */}
-      <div className="absolute xl:top-4 xl:right-4 bottom-0 left-0 right-0 xl:left-auto xl:w-[380px] flex flex-col gap-3 z-20 max-h-[260px] xl:max-h-[calc(100%-2rem)] overflow-y-auto p-4 xl:p-0 bg-gradient-to-t from-white via-white/95 to-transparent xl:bg-none">
+      <div className="absolute xl:top-4 xl:right-4 bottom-0 left-0 right-0 xl:left-auto xl:w-[380px] flex flex-col gap-3 z-20 max-h-[160px] xl:max-h-[calc(100%-2rem)] overflow-y-auto p-4 xl:p-0 bg-gradient-to-t from-white via-white/95 to-transparent xl:bg-none">
         
         {/* Detail Box */}
         <motion.div 

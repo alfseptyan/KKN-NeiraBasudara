@@ -54,7 +54,7 @@ export function Gallery() {
       <div className="w-full px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
             {/* Header aligned with grid */}
-            <div className="flex flex-col lg:flex-row justify-between items-end mb-6 gap-4 border-b border-orange-200/50 pb-4">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 gap-4 border-b border-orange-200/50 pb-4">
               <div className="text-left relative">
                  {/* Flower Decoration */}
                  <div className="absolute -top-10 -left-6 w-20 h-20 opacity-80 pointer-events-none -z-10">
@@ -65,7 +65,7 @@ export function Gallery() {
                         className="object-contain"
                     />
                  </div>
-                <div className="relative h-12 lg:h-16 w-64 lg:w-96 mb-2 relative z-10">
+                <div className="relative h-12 md:h-16 w-64 md:w-96 mb-2 relative z-10">
                    <Image
                       src="/Judul/Galeri Kegiatan1.png"
                       alt="Galeri Kegiatan"
