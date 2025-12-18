@@ -51,8 +51,7 @@ export function Gallery() {
 
   return (
     <section id="gallery" className="w-full py-12 bg-[#FDFBF7]"> {/* Lightest warm background - Reduced padding */}
-      <div className="w-full px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
+      <div className="container mx-auto px-4 md:px-6">
             {/* Header aligned with grid */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 gap-4 border-b border-orange-200/50 pb-4">
               <div className="text-left relative">
@@ -150,7 +149,6 @@ export function Gallery() {
                     </div>
                 );
             })()}
-        </div>
       </div>
     </section>
   );
