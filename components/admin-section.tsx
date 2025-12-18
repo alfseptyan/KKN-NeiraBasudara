@@ -35,7 +35,7 @@ export function AdminSection() {
             <Card className="group relative overflow-hidden border-orange-200/50 bg-gradient-to-br from-white to-orange-50/50 hover:shadow-xl hover:shadow-orange-100/50 transition-all duration-300">
                 <div className="absolute -right-6 -top-6 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none">
                     <Image
-                        src="/Asset/asset batik.png"
+                        src="/Asset/batik-new.png"
                         alt="Batik Decoration"
                         fill
                         className="object-contain rotate-12"
@@ -62,7 +62,7 @@ export function AdminSection() {
             <Card className="group relative overflow-hidden border-orange-200/50 bg-gradient-to-br from-white to-orange-50/50 hover:shadow-xl hover:shadow-orange-100/50 transition-all duration-300">
                 <div className="absolute -right-6 -top-6 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none">
                     <Image
-                        src="/Asset/asset batik.png"
+                        src="/Asset/batik-new.png"
                         alt="Batik Decoration"
                         fill
                         className="object-contain rotate-12"
@@ -89,7 +89,7 @@ export function AdminSection() {
             <Card className="group relative overflow-hidden border-primary/20 bg-gradient-to-br from-primary/5 to-orange-100/20 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 ring-1 ring-primary/10">
                 <div className="absolute -right-6 -top-6 w-32 h-32 opacity-15 group-hover:opacity-25 transition-opacity duration-300 pointer-events-none">
                      <Image
-                        src="/Asset/asset batik.png"
+                        src="/Asset/batik-new.png"
                         alt="Batik Decoration"
                         fill
                         className="object-contain rotate-12"
