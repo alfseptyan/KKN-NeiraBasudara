@@ -9,6 +9,7 @@ import { Timeline } from "@/components/timeline";
 import { AdminSection } from "@/components/admin-section";
 import { Gallery } from "@/components/gallery";
 import { Preloader } from "@/components/preloader";
+import { AnnouncementModal } from "@/components/announcement-modal";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -23,6 +24,7 @@ export default function Home() {
 
   return (
     <>
+      <AnnouncementModal />
       <Preloader isLoading={loading} />
       <Hero onReady={() => setLoading(false)} />
       <About />

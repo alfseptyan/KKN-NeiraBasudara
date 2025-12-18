@@ -36,7 +36,7 @@ export function About() {
              />
           </div>
           <p className="text-muted-foreground max-w-[800px] text-lg">
-            KKN-PPM UGM Periode 2 di Banda Neira, Maluku Tengah.
+            KKN-PPM UGM Periode II Kec. Banda & Kepulauan Banda, Maluku Tengah.
           </p>
         </div>
         
