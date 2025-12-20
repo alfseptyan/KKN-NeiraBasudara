@@ -8,7 +8,7 @@ export function CopDefinition() {
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
           <Image 
-            src="/Asset/asset batik.png" 
+            src="/Asset/batik-new.png" 
             alt="Pattern" 
             fill 
             className="object-cover"
@@ -64,7 +64,7 @@ export function CopDefinition() {
                 <div className="bg-white rounded-2xl p-8 shadow-lg border-l-8 border-[#3B9698] relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
                     <div className="absolute top-0 right-0 p-4 opacity-10">
                          <div className="w-16 h-16 relative">
-                            <Image src="/Asset/asset batik.png" alt="icon" fill className="object-contain" />
+                            <Image src="/Asset/batik-new.png" alt="icon" fill className="object-contain" />
                          </div>
                     </div>
                     <h3 className="text-lg font-bold text-[#3B9698] mb-3 uppercase tracking-wide">Definisi</h3>
@@ -77,7 +77,7 @@ export function CopDefinition() {
                 <div className="bg-white rounded-2xl p-8 shadow-lg border-l-8 border-[#F4C5A2] relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
                      <div className="absolute top-0 right-0 p-4 opacity-10">
                          <div className="w-16 h-16 relative">
-                            <Image src="/Asset/asset batik.png" alt="icon" fill className="object-contain" />
+                            <Image src="/Asset/batik-new.png" alt="icon" fill className="object-contain" />
                          </div>
                     </div>
                     <h3 className="text-lg font-bold text-[#F4C5A2] mb-3 uppercase tracking-wide">Nilai Utama</h3>

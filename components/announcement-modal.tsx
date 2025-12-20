@@ -69,15 +69,15 @@ export function AnnouncementModal() {
                     {/* Content */}
                     <div className="space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
                         <p>
-                            Ada kabar baik nih! Setelah mendengar saran dari kawan neira, kami memutuskan untuk memberikan lebih banyak kemudahan.
+                            Bagi teman-teman yang telah mendaftar, Pengumuman Hasil Seleksi telah dikirimkan melalui email pendaftar masing-masing.
                         </p>
                         <div className="bg-primary/5 p-4 rounded-xl border border-primary/10">
                             <p className="font-semibold text-foreground">
-                                Wawancara kini bisa dilakukan secara <span className="text-primary font-bold">DARING (online)</span> maupun <span className="text-secondary font-bold">LURING (offline)</span>!
+                                Silakan cek kotak masuk atau folder spam email kalian untuk informasi lebih lanjut.
                             </p>
                         </div>
                         <p>
-                            Jadi, mau dari mana saja, tetap bisa bergabung dengan kami. Jangan lewatkan kesempatan menjadi bagian dari Neira Basudara 2026!
+                            Terima kasih atas antusiasme kalian untuk bergabung dengan Neira Basudara 2026!
                         </p>
                     </div>
 

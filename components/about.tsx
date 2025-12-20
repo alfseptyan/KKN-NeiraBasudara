@@ -45,7 +45,7 @@ export function About() {
                 {/* Batik Decoration */}
                 <div className="absolute -top-10 -left-10 w-32 h-32 opacity-10 pointer-events-none -z-10 rotate-12">
                    <Image 
-                     src="/Asset/asset batik.png" 
+                     src="/Asset/batik-new.png" 
                      alt="Batik Pattern" 
                      fill 
                      className="object-contain"

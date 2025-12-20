@@ -4,6 +4,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { Chatbot } from "@/components/chatbot";
 
 const figtree = Figtree({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
             {children}
         </main>
         <Footer />
+        <Chatbot />
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS || "G-JT6VGN5M3X"} />
       </body>
     </html>
