@@ -17,6 +17,9 @@ export function Chatbot() {
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [cooldown, setCooldown] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(true); // Start hidden until modal closes
+  const [showNotification, setShowNotification] = useState(true); // Show notification badge
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -27,9 +30,31 @@ export function Chatbot() {
     scrollToBottom();
   }, [messages, isOpen]);
 
+  // Cooldown timer
+  useEffect(() => {
+    if (cooldown > 0) {
+      const timer = setTimeout(() => setCooldown(cooldown - 1), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [cooldown]);
+
+  // Listen for announcement modal events
+  useEffect(() => {
+    const handleModalOpened = () => setIsModalOpen(true);
+    const handleModalClosed = () => setIsModalOpen(false);
+    
+    window.addEventListener('announcementModalOpened', handleModalOpened);
+    window.addEventListener('announcementModalClosed', handleModalClosed);
+    
+    return () => {
+      window.removeEventListener('announcementModalOpened', handleModalOpened);
+      window.removeEventListener('announcementModalClosed', handleModalClosed);
+    };
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!input.trim() || isLoading) return;
+    if (!input.trim() || isLoading || cooldown > 0) return;
 
     const userMessage: Message = { role: "user", content: input };
     setMessages((prev) => [...prev, userMessage]);
@@ -58,6 +83,7 @@ export function Chatbot() {
       ]);
     } finally {
       setIsLoading(false);
+      setCooldown(5); // 5 second cooldown
     }
   };
 
@@ -133,9 +159,10 @@ export function Chatbot() {
                 />
                 <Button
                   type="submit"
-                  disabled={isLoading || !input.trim()}
+                  disabled={isLoading || !input.trim() || cooldown > 0}
                   size="icon"
                   className="bg-primary hover:bg-primary/90 text-white rounded-xl"
+                  title={cooldown > 0 ? `Tunggu ${cooldown} detik` : "Kirim"}
                 >
                   <Send className="w-4 h-4" />
                 </Button>
@@ -145,14 +172,32 @@ export function Chatbot() {
         )}
       </AnimatePresence>
 
-      <motion.button
-        onClick={() => setIsOpen(!isOpen)}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center hover:bg-primary/90 transition-colors"
-      >
-        {isOpen ? <X className="w-7 h-7" /> : <MessageCircle className="w-7 h-7" />}
-      </motion.button>
+      {/* Floating Chat Button - Hidden when modal is open */}
+      <AnimatePresence>
+        {!isModalOpen && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            onClick={() => {
+              setIsOpen(!isOpen);
+              setShowNotification(false);
+            }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center hover:bg-primary/90 transition-colors"
+          >
+            {isOpen ? <X className="w-7 h-7" /> : <MessageCircle className="w-7 h-7" />}
+            
+            {/* Notification Badge */}
+            {showNotification && !isOpen && (
+              <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center animate-pulse">
+                1
+              </span>
+            )}
+          </motion.button>
+        )}
+      </AnimatePresence>
     </>
   );
 }

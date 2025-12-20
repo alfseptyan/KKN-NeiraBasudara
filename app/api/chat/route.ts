@@ -1,33 +1,25 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import Groq from "groq-sdk";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
     try {
-        const apiKey = process.env.GEMINI_API_KEY;
-        console.log("API Key exists:", !!apiKey); // Debug log
+        const apiKey = process.env.GROQ_API_KEY;
+        console.log("Groq API Key exists:", !!apiKey);
 
         if (!apiKey) {
-            console.error("Error: GEMINI_API_KEY is missing");
+            console.error("Error: GROQ_API_KEY is missing");
             return NextResponse.json(
-                { error: "API key not configured" },
+                { error: "Groq API key not configured. Please add GROQ_API_KEY to .env.local" },
                 { status: 500 }
             );
         }
 
-        const genAI = new GoogleGenerativeAI(apiKey);
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+        const groq = new Groq({ apiKey });
 
         const body = await req.json();
         const { messages } = body;
-        console.log("Received messages count:", messages?.length); // Debug log
+        console.log("Received messages count:", messages?.length);
 
-        // Convert chat history to Gemini format if needed, 
-        // but for simple one-off or context-aware chat, we can just send the last prompt 
-        // or construct a history. For this iteration, let's keep it simple:
-        // We'll feed the history appropriately. 
-        // Gemini expects parts: [{text: "..."}] for user/model roles.
-
-        // Basic validation
         if (!messages || !Array.isArray(messages)) {
             return NextResponse.json(
                 { error: "Invalid message format" },
@@ -35,29 +27,29 @@ export async function POST(req: Request) {
             );
         }
 
-        const lastMessage = messages[messages.length - 1];
-        let history = messages.slice(0, -1).map((m: any) => ({
-            role: m.role === 'user' ? 'user' : 'model',
-            parts: [{ text: m.content }],
-        }));
+        // Format messages for Groq (similar to OpenAI format)
+        const formattedMessages = [
+            {
+                role: "system" as const,
+                content: "Kamu adalah Asisten Neira, chatbot ramah untuk website KKN Neira Basudara di Banda Neira, Maluku. Jawab dengan bahasa Indonesia yang sopan dan informatif. Berikan informasi tentang KKN, Banda Neira, dan kegiatan komunitas."
+            },
+            ...messages.map((m: any) => ({
+                role: m.role === 'user' ? 'user' as const : 'assistant' as const,
+                content: m.content
+            }))
+        ];
 
-        // Gemini requires the first message in history to be from 'user'.
-        // If the first message is from 'model' (e.g. initial greeting), remove it.
-        if (history.length > 0 && history[0].role === 'model') {
-            history = history.slice(1);
-        }
+        console.log("Sending to Groq...");
 
-        console.log("Starting chat with history length:", history.length); // Debug log
-
-        const chat = model.startChat({
-            history: history,
+        const completion = await groq.chat.completions.create({
+            model: "llama-3.3-70b-versatile",
+            messages: formattedMessages,
+            temperature: 0.7,
+            max_tokens: 1024,
         });
 
-        console.log("Sending message to Gemini...");
-        const result = await chat.sendMessage(lastMessage.content);
-        const response = await result.response;
-        const text = response.text();
-        console.log("Received response from Gemini");
+        const text = completion.choices[0]?.message?.content || "Maaf, tidak ada respons dari AI.";
+        console.log("Received response from Groq");
 
         return NextResponse.json({ role: 'assistant', content: text });
 

@@ -19,8 +19,17 @@ export function AnnouncementModal() {
 
   const handleClose = () => {
     setIsOpen(false);
+    // Dispatch event to notify chatbot
+    window.dispatchEvent(new CustomEvent('announcementModalClosed'));
     // sessionStorage.setItem("hasSeenAnnouncement", "true");
   };
+
+  useEffect(() => {
+    // Dispatch event when modal opens
+    if (isOpen) {
+      window.dispatchEvent(new CustomEvent('announcementModalOpened'));
+    }
+  }, [isOpen]);
 
   return (
     <AnimatePresence>
