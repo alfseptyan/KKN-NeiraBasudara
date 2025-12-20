@@ -95,10 +95,10 @@ export function Chatbot() {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="fixed z-50 bg-white shadow-2xl border border-border flex flex-col overflow-hidden bottom-0 left-0 right-0 w-full h-[85dvh] rounded-t-2xl sm:bottom-24 sm:left-auto sm:right-6 sm:w-[380px] sm:h-[600px] sm:rounded-2xl pb-safe"
+            className="fixed z-50 bg-white shadow-2xl border border-border flex flex-col overflow-hidden top-0 left-0 w-full h-full sm:top-auto sm:left-auto sm:bottom-24 sm:right-6 sm:w-[380px] sm:h-[600px] sm:rounded-2xl pb-safe"
           >
             {/* Header */}
-            <div className="bg-primary p-4 flex items-center justify-between text-white">
+            <div className="bg-primary p-4 flex items-center justify-between text-white shrink-0">
               <div className="flex items-center gap-2">
                 <Bot className="w-6 h-6" />
                 <h3 className="font-bold">Asisten Neira</h3>
@@ -172,25 +172,25 @@ export function Chatbot() {
         )}
       </AnimatePresence>
 
-      {/* Floating Chat Button - Hidden when modal is open */}
+      {/* Floating Chat Button - Hidden when modal is open OR chat is open */}
       <AnimatePresence>
-        {!isModalOpen && (
+        {!isModalOpen && !isOpen && (
           <motion.button
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.5 }}
             onClick={() => {
-              setIsOpen(!isOpen);
+              setIsOpen(true);
               setShowNotification(false);
             }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center hover:bg-primary/90 transition-colors"
           >
-            {isOpen ? <X className="w-7 h-7" /> : <MessageCircle className="w-7 h-7" />}
+            <MessageCircle className="w-7 h-7" />
             
             {/* Notification Badge */}
-            {showNotification && !isOpen && (
+            {showNotification && (
               <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center animate-pulse">
                 1
               </span>
