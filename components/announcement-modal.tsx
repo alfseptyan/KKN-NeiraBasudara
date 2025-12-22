@@ -78,7 +78,7 @@ export function AnnouncementModal() {
                     {/* Content */}
                     <div className="space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
                         <p>
-                            Bagi teman-teman yang telah mendaftar, Pengumuman Hasil Seleksi telah dikirimkan melalui email pendaftar masing-masing.
+                            Bagi teman-teman yang telah mendaftar, Pengumuman Hasil Seleksi Berkas telah dikirimkan melalui email pendaftar masing-masing.
                         </p>
                         <div className="bg-primary/5 p-4 rounded-xl border border-primary/10">
                             <p className="font-semibold text-foreground">
