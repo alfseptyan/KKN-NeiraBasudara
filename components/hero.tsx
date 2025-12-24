@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
@@ -9,18 +10,52 @@ interface HeroProps {
 }
 
 export function Hero({ onReady }: HeroProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isFading, setIsFading] = useState(false);
+
+  const handleTimeUpdate = () => {
+    if (!videoRef.current) return;
+    const { currentTime, duration } = videoRef.current;
+    
+    // Start fading out (to black) 0.8s before end
+    if (duration - currentTime < 0.8) {
+      if (!isFading) setIsFading(true);
+    }
+    
+    // Fade back in (from black) shortly after start
+    if (currentTime < 0.8 && currentTime > 0) {
+       if (isFading) setIsFading(false);
+    }
+  };
+
+  const handleEnded = () => {
+    if (!videoRef.current) return;
+    // Reset video
+    videoRef.current.currentTime = 0;
+    videoRef.current.play();
+  };
+
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
+      {/* Black Transition Overlay */}
+      <div 
+        className={`absolute inset-0 bg-black z-10 pointer-events-none transition-opacity duration-700 ease-in-out ${
+            isFading ? "opacity-100" : "opacity-0"
+        }`} 
+      />
+
       {/* Video Background */}
       <div className="absolute inset-0 bg-black/50 z-10" />
       <video
+        ref={videoRef}
         autoPlay
         muted
-        loop
         playsInline
         poster="https://images.unsplash.com/photo-1596423736858-29307730e730?q=80&w=1920&auto=format&fit=crop"
         className="absolute inset-0 h-full w-full object-cover"
         onLoadedData={onReady}
+        onTimeUpdate={handleTimeUpdate}
+        onEnded={handleEnded}
       >
         <source src="/Neira Video Fix2.mp4" type="video/mp4" />
       </video>
