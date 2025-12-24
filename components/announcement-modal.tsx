@@ -78,15 +78,15 @@ export function AnnouncementModal() {
                     {/* Content */}
                     <div className="space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
                         <p>
-                            Bagi teman-teman yang telah mendaftar, Pengumuman Hasil Seleksi Berkas telah dikirimkan melalui email pendaftar masing-masing.
+                            <strong>Pengumuman Akhir</strong> telah dikirimkan! Silakan cek email pendaftar masing-masing pada pukul 15.00 WIB.
                         </p>
                         <div className="bg-primary/5 p-4 rounded-xl border border-primary/10">
-                            <p className="font-semibold text-foreground">
-                                Silakan cek kotak masuk atau folder spam email kalian untuk informasi lebih lanjut.
+                            <p className="font-semibold text-foreground mb-1">
+                                Jangan lupa konfirmasi penerimaan maksimal 24 Des 2025 pukul 23.59 WIB.
                             </p>
                         </div>
                         <p>
-                            Terima kasih atas antusiasme kalian untuk bergabung dengan Neira Basudara 2026!
+                            Bagi teman-teman yang belum diterima, jangan sedih dan tetap semangat berkarya!
                         </p>
                     </div>
 
